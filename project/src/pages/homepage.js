@@ -1,6 +1,14 @@
-export default function Infopage() {
+import NavBar from './components/navbar';
+
+export default function HomePage() {
     return (
-      <p>Homepage</p>
+      <div>
+        <NavBar/>
+        <br></br>
+        <br></br>
+        <br></br>
+        <p>Home Page</p>
+      </div>
     );
   }
   

@@ -1,0 +1,31 @@
+.navbar {
+    overflow: hidden;
+    background-color: #4D5382;
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+  .navbar button {
+    float: left;
+    background-color: #4D5382;
+    border: none;
+    color: white;
+    display: block;
+    text-align: center;
+    padding: 8px 2.5%;
+    text-decoration: none;
+    font-size: 17px;
+    height: 4rem;
+  }
+  .navbar .login {
+    float: right;
+    margin-right: 0;
+  }
+  .navbar a:hover {
+    background: #658E9C;
+    color: white;
+  }
+  .navbar button:hover {
+    background: #658E9C;
+    color: white;
+  }

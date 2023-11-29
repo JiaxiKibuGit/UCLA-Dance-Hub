@@ -1,14 +1,16 @@
+
 import NavBar from './components/navbar';
 
-export default function NotFound() {
+export default function Map() {
     return (
       <div>
         <NavBar/>
         <br></br>
         <br></br>
         <br></br>
-        <p>Not Found</p>
+        <p>Map</p>
       </div>
+
     );
   }
   

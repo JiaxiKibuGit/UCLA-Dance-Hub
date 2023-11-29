@@ -1,9 +1,11 @@
 import './App.css';
 import React from 'react'
 
-import Homepage from './pages/homepage.js';
-import Infopage from './pages/infopage.js';
+import HomePage from './pages/homepage.js';
+import Map from './pages/map.js';
+import OrganizationSearch from './pages/organizationsearch.js';
 import NotFound from './pages/notfound.js';
+import Profile from './pages/profile.js';
 
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 
@@ -11,8 +13,10 @@ const App = () => {
   return (
     <Router>
         <Routes>
-          <Route exact path="/" element={<Homepage/>}/>
-          <Route exact path="/infopage" element={<Infopage/>}/>
+          <Route exact path="/" element={<HomePage/>}/>
+          <Route exact path="/organizations" element={<OrganizationSearch/>}/>
+          <Route exact path="/map" element={<Map/>}/>
+          <Route exact path="/profile" element={<Profile/>}/>
           <Route path="*" element={<NotFound/>}/>
         </Routes>
     </Router>
@@ -21,4 +25,4 @@ const App = () => {
      
 
 
-export default App;
+export default App; 
