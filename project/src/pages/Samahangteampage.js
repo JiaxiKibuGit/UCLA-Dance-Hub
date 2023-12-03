@@ -1,7 +1,7 @@
 import React from 'react';
 import NavBar from './components/navbar';
 
-const SamahangteamPage = () => {
+const Samahangteampage = () => {
     
     const marginTopValue = '60px'; 
 
@@ -29,4 +29,4 @@ const SamahangteamPage = () => {
     );
 };
 
-export default SamahangteamPage;
+export default Samahangteampage;
