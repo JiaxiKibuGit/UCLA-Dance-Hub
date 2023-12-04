@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
-import {initializeApp, UserInfo} from 'firebase/app';
+import {initializeApp} from 'firebase/app';
+import {getDatabase, ref, get} from 'firebase/database';
 import {GoogleAuthProvider, getAuth, signInWithPopup} from 'firebase/auth';
-import {getFirestore} from 'firebase/firestore';
 
 
 //firebase config
@@ -18,10 +18,11 @@ export const firebaseConfig = {
 //initialize firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
-const db = getFirestore(app);
+const db = getDatabase();
 
 
 
+/* AUTHORIZATON HANDLERS */
 
 
 //Google Auth
@@ -61,10 +62,42 @@ export function GetName () {
 
 
 
+/* TEAM DATABASE READ FUNCTIONS */
 
+//1=NAME, 2=DESCRIPTION, 3=PHOTO, 4=MEMBER LIST
+export function GetTeamInfo(teamid, choice) {
+    const [temp, setTemp] = useState("Loading");
+    const dbRef = ref(db, '/teams/' + teamid);
 
-
-
+    get(dbRef)
+        .then((snapshot) => {
+            if (snapshot.exists()) {
+                var teamName;
+                switch(choice) {
+                    case 1:
+                        teamName = snapshot.val().team_name;
+                        break;
+                    case 2:
+                        teamName = snapshot.val().about_me;
+                        break;
+                    case 3:
+                        teamName = snapshot.val().key_image;      
+                        break;
+                    case 4:
+                        teamName = snapshot.val().team_name;
+                        break;
+                    default:
+                        teamName = "error"
+                }
+                //console.log(teamName);
+                setTemp(teamName);
+            } else {
+                console.log('Team not found.');
+                setTemp("Team not found");
+            }
+        })
+    return temp;
+}
 
 
 
