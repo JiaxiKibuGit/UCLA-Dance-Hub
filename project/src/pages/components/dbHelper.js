@@ -1,7 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import {initializeApp} from 'firebase/app';
-import {getDatabase, ref, get} from 'firebase/database';
-import {GoogleAuthProvider, getAuth, signInWithPopup} from 'firebase/auth';
+import {getDatabase, ref, get, set, push} from 'firebase/database';
+import { GoogleAuthProvider, getAuth, signInWithPopup } from 'firebase/auth';
+
 
 
 //firebase config
