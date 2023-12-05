@@ -1,14 +1,21 @@
 .map-container {
     position: relative;
     width: 100%; /* or a specific width */
-  }
+}
   
-  .responsive-map {
+.responsive-map {
     width: 100%;
     height: auto; /* maintains aspect ratio */
-  }
+}
+.content-container {
+    width: 100%; /* Sets the container to the full width of the page */
+}
   
-  .tear {
+.content-container img {
+    width: 100%; /* Sets the width of both images to 100% of their container */
+    height: auto; /* Maintains the aspect ratio */
+}
+.tear {
     position: absolute;
     width: 2vw; /* or another relative unit */
     height: 2vw; /* or another relative unit */
@@ -16,5 +23,5 @@
     border: 0.2vw solid black;
     transform: rotate(-135deg);
     background-color: red; /* for visibility */
-  }
+}
   

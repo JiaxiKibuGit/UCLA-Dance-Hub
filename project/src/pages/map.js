@@ -13,8 +13,19 @@ export default function Map() {
   ];
 
   return (
-    <div>
+    <div className="content-container">
       <NavBar />
+      <br/>
+      <br/>
+      <br/>
+      <div className="banner-container">
+        <img
+        src="gobruins.avif"
+        alt="UCLA banner"
+        className="ucla-banner"
+      />
+      </div>
+      
       <div className="map-container">
         <img
           src="map.png"
