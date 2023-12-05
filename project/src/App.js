@@ -3,7 +3,6 @@ import React from 'react'
 
 import HomePage from './pages/homepage.js';
 import Map from './pages/map.js';
-import OrganizationSearch from './pages/organizationsearch.js';
 import NotFound from './pages/notfound.js';
 import Profile from './pages/profile.js';
 import TeamPage from './pages/teampage.js';
