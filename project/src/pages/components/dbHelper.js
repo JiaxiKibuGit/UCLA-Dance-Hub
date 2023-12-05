@@ -205,7 +205,10 @@ export async function GetEventList() {
           const location = eventData[i]["location"];
           const time = eventData[i]["startTime"];
           const date = eventData[i]["startDate"]
-          eventInfo.push({name, location, date, time}); // add team:teamid
+          const org = eventData[i]["organization"]
+          const unix = eventData[i]["startUnixDate"]
+          const description = eventData[i]["description"]
+          eventInfo.push({name, location, date, time, org, unix, description}); // add team:teamid
   
           let members = eventData[i]["memberlist"];
           for (const name in members) {
@@ -221,4 +224,4 @@ export async function GetEventList() {
       console.error('Error fetching team data:', error);
     }
     return eventInfo;
-  }
+}

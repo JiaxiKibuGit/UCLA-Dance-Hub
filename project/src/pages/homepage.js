@@ -15,10 +15,15 @@ export default class HomePage extends Component {
     };
   }
 
-  async componentDidMount() { // SETS MAP, SETS SEARCHLIST
+  async componentDidMount() { // SETS MAP, SORTS SEARCHLIST
       const temp = await GetEventList();
-      this.setState({ eventData : temp }); 
-      console.log(temp);
+      let sorted_list = temp.sort((a, b) => a.unix - b.unix); // sort list by time, earliest to latest
+
+      const currentTime = Math.floor(Date.now() / 1000); // Current Unix time in seconds
+      const filteredList = sorted_list.filter(event => event.unix >= currentTime); // filter for only events after current event
+
+      this.setState({ eventData : filteredList }); 
+      console.log(sorted_list);
   }
 
   handleContentClick = (content) => {
@@ -58,7 +63,7 @@ export default class HomePage extends Component {
                 id="contact-info"
                 onClick={() => this.handleContentClick("schedule")}
               >
-                <h2>Upcoming Schedule</h2>
+                <h2>Upcoming Events</h2>
               </div>
               <div
                 id="contact-info"
@@ -77,9 +82,14 @@ export default class HomePage extends Component {
               <div className="info-box">
                 <h2>{selectedContent.title}</h2>
                 {selectedContent.content === "schedule" && (
-                  <div>
+                  <div className="eventListBox">
                     {this.state.eventData.map((event, index) => (
-                        <p key={index}>{event.name} - {event.location}</p>
+                      <div className = "eventListOuterDiv">
+                         <p className = "eventHeader">{event.name}</p>
+                         <p className = "eventSubtitle">{event.location} | {event.date} at {event.time}</p>
+                         <p className = "eventSubtitle">{event.org}</p>
+                         <p className = "descriptionSub">"{event.description}"</p>
+                      </div>
                     ))}
                   </div>
                 )}
