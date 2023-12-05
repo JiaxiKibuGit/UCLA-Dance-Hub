@@ -218,7 +218,7 @@ export default function HomePage() {
                   <h2 style={{ textAlign: "left", fontSize: "32px" }}>KBM</h2>
                   <h2 style={{ textAlign: "left", fontSize: "20px" }}>
                     <a
-                      href="https://https://instagram.com/kbmdanceucla?igshid=q5ixx42b6tgq.instagram.com/vsumodern/"
+                      href="https://www.instagram.com/kbmdanceucla/?hl=en"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
