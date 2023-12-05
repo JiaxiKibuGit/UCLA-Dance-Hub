@@ -9,6 +9,7 @@ import TeamPage from './pages/teampage.js';
 import HostEvent from './pages/hostevent.js';
 import EventConfirmation from './pages/eventconfirmation.js'; 
 import DanceSearch from './pages/Search.js'
+import NotLoggedIn from './pages/notloggedin.js';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 
 const App = () => {
@@ -22,6 +23,7 @@ const App = () => {
         <Route path="/eventconfirmation/:eventId" element={<EventConfirmation />} />
         <Route exact path="/team" element={<TeamPage />} /> {/* New route for team page */}
         <Route exact path="/organizations" element={<DanceSearch />} />
+        <Route exact path="/NLI" element={<NotLoggedIn />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>

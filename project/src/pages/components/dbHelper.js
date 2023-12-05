@@ -38,12 +38,24 @@ export async function signIn() {
 export function PLHandler() {
     auth.onAuthStateChanged((user) => {
         if (user) {
-            window.location.replace("profile");
+            window.location.replace("/profile");
         } else {
             signIn();
         }
     });
 }
+
+//CHECK FOR AUTH TO USE HOSTING EVENT PAGE 
+export function CheckIfAuth() {
+    auth.onAuthStateChanged((user) => {
+        if (user) {
+        } else {
+            window.location.replace("/NLI");
+        }
+    });
+}
+
+
 
 
 //USER INFORMATON MODIFIER

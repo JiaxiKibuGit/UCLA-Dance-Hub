@@ -1,0 +1,13 @@
+.NLI {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+  
+.NLI p {
+    font-size: 2rem; /* Adjust the font size as needed */
+    font-weight: bold;
+    text-align: center;
+} 
