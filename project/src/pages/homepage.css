@@ -70,6 +70,6 @@ body {
 .info-box h2 {
   font-size: 40px;
   font-weight: bold;
-  padding: 0px 20px 20px;
+  padding: 0px 20px 10px;
   text-align: center; /* Align the text to the center */
 }

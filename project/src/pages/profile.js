@@ -1,22 +1,17 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from "react";
 
-import NavBar from './components/navbar.js';
-import {GetName} from './components/dbHelper.js'
-
+import NavBar from "./components/navbar.js";
+import { useGetName } from "./components/dbHelper.js";
 
 export default function Profile(props) {
-
-
-
-    return (
-      <div>
-        <NavBar/>
-        <br></br>
-        <br></br>
-        <br></br>
-        <p>Profile</p>
-        <p>Name: {GetName()}</p>
-      </div>
-    );
-  }
-  
+  return (
+    <div>
+      <NavBar />
+      <br></br>
+      <br></br>
+      <br></br>
+      <p>Profile</p>
+      <p>Name: {useGetName()}</p>
+    </div>
+  );
+}

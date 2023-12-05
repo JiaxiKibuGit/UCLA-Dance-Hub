@@ -73,9 +73,167 @@ export default function HomePage() {
               )}
               {selectedContent.content === "contact" && (
                 <>
-                  {Array.from({ length: 20 }).map((_, index) => (
-                    <p key={index}>Test Data {index + 1}</p>
-                  ))}
+                  <h2
+                    style={{
+                      textAlign: "left",
+                      fontSize: "32px",
+                    }}
+                  >
+                    ACA
+                  </h2>
+                  <h2 style={{ textAlign: "left", fontSize: "20px" }}>
+                    <a
+                      href="https://linktr.ee/acaallday"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Linktree
+                    </a>
+                  </h2>
+                  <h2 style={{ textAlign: "left", fontSize: "20px" }}>
+                    <a
+                      href="https://www.instagram.com/acaallday/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Instagram
+                    </a>
+                  </h2>
+                  <h2 style={{ textAlign: "left", fontSize: "20px" }}>
+                    <a
+                      href="https://www.youtube.com/@acaallday"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      YouTube
+                    </a>
+                  </h2>
+                  <h2 style={{ textAlign: "left", fontSize: "20px" }}>
+                    <a
+                      href="https://www.facebook.com/acahiphop"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Facebook
+                    </a>
+                  </h2>
+                  <h2 style={{ textAlign: "left", fontSize: "32px" }}>VSU</h2>
+                  <h2 style={{ textAlign: "left", fontSize: "20px" }}>
+                    <a
+                      href="https://linktr.ee/vsumodern"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Linktree
+                    </a>
+                  </h2>
+                  <h2 style={{ textAlign: "left", fontSize: "20px" }}>
+                    <a
+                      href="https://www.instagram.com/vsumodern/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Instagram
+                    </a>
+                  </h2>
+                  <h2 style={{ textAlign: "left", fontSize: "20px" }}>
+                    <a
+                      href="https://www.youtube.com/user/vsumodern/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      YouTube
+                    </a>
+                  </h2>
+                  <h2 style={{ textAlign: "left", fontSize: "20px" }}>
+                    <a
+                      href="https://www.facebook.com/vsumodern"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Facebook
+                    </a>
+                  </h2>
+
+                  <h2 style={{ textAlign: "left", fontSize: "32px" }}>
+                    Samahang
+                  </h2>
+                  <h2 style={{ textAlign: "left", fontSize: "20px" }}>
+                    <a
+                      href="https://linktr.ee/samahangmodern"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Linktree
+                    </a>
+                  </h2>
+                  <h2 style={{ textAlign: "left", fontSize: "20px" }}>
+                    <a
+                      href="https://instagram.com/samahangmodern"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Instagram
+                    </a>
+                  </h2>
+                  <h2 style={{ textAlign: "left", fontSize: "20px" }}>
+                    <a
+                      href="https://www.youtube.com/channel/UCz3HuH4ffn5PRFrEFQMloMw"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      YouTube
+                    </a>
+                  </h2>
+                  <h2 style={{ textAlign: "left", fontSize: "32px" }}>
+                    Foundations
+                  </h2>
+                  <h2 style={{ textAlign: "left", fontSize: "20px" }}>
+                    <a
+                      href="https://www.instagram.com/foundationschoreo/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Instagram
+                    </a>
+                  </h2>
+                  <h2 style={{ textAlign: "left", fontSize: "20px" }}>
+                    <a
+                      href="https://www.youtube.com/c/FoundationsChoreography/featured"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      YouTube
+                    </a>
+                  </h2>
+                  <h2 style={{ textAlign: "left", fontSize: "20px" }}>
+                    <a
+                      href="https://www.facebook.com/FoundationsChoreo"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Facebook
+                    </a>
+                  </h2>
+                  <h2 style={{ textAlign: "left", fontSize: "32px" }}>KBM</h2>
+                  <h2 style={{ textAlign: "left", fontSize: "20px" }}>
+                    <a
+                      href="https://https://instagram.com/kbmdanceucla?igshid=q5ixx42b6tgq.instagram.com/vsumodern/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Instagram
+                    </a>
+                  </h2>
+                  <h2 style={{ textAlign: "left", fontSize: "20px" }}>
+                    <a
+                      href="https://www.youtube.com/c/KBMDanceUCLA"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      YouTube
+                    </a>
+                  </h2>
                 </>
               )}
               {selectedContent.content === "questions" && (
