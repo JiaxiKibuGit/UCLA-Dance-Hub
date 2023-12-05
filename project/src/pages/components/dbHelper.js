@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {initializeApp} from 'firebase/app';
-import {getDatabase, ref, get, set, push} from 'firebase/database';
+import {getDatabase, ref, get, set, push, limitToLast} from 'firebase/database';
 import { GoogleAuthProvider, getAuth, signInWithPopup } from 'firebase/auth';
 
 
@@ -102,6 +102,10 @@ export function GetTeamInfo(teamid, choice) {
                         case 3:
                             teamName = snapshot.val().key_image;
                             break;
+                        case 4:
+                            teamName = snapshot.val().vidlink;
+                            break;
+                       
                         default:
                             teamName = "error";
                     }
