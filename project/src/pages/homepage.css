@@ -73,3 +73,29 @@ body {
   padding: 0px 20px 10px;
   text-align: center; /* Align the text to the center */
 }
+
+
+.eventHeader {
+  font-weight: bold; /* Make text bold */
+  font-size: 1.2em; /* Increase font size */
+}
+
+/* Apply styles to the eventSubtitle class */
+.eventSubtitle {
+}
+
+.descriptionSub {
+  font-style: italic; /* Make text italic (for a subtitle look) */
+}
+
+.eventListOuterDiv {
+  text-align: center;
+  border-top: 1px solid #000; /* Add a 1px solid black line above the div */
+  border-bottom: 1px solid #000; /* Add a 1px solid black line below the div */
+  padding: 10px 0; /* Add padding to create space between the lines and content */
+}
+
+.eventListBox {
+  text-align:center;
+}
+

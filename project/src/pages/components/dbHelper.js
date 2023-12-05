@@ -108,6 +108,7 @@ export function GetTeamInfo(teamid, choice) {
   useEffect(() => {
     const dbRef = ref(db, "/teams/" + teamid);
 
+
     get(dbRef)
       .then((snapshot) => {
         if (snapshot.exists()) {
@@ -140,6 +141,8 @@ export function GetTeamInfo(teamid, choice) {
   return teamInfo;
 }
 
+
+
 // GET SEARCH LIST FOR TEAMS
 export async function GetSearchList() {
   const dbRef = ref(db, "/teams/");
@@ -169,6 +172,7 @@ export async function GetSearchList() {
   }
   return team_and_members;
 }
+
 
 //CREATE EVENT
 export function createEvent(eventData) {
@@ -204,31 +208,38 @@ export async function getEvent(eventId) {
 }
 
 //GET LIST OF EVENTS
+/GET LIST OF EVENTS
 export async function GetEventList() {
-  const dbRef = ref(db, "/events/");
-  let eventInfo = [];
-  try {
-    const snapshot = await get(dbRef);
-    if (snapshot.exists()) {
-      let eventData = snapshot.val();
-      for (const i in eventData) {
-        const name = eventData[i]["name"];
-        const location = eventData[i]["location"];
-        const time = eventData[i]["startTime"];
-        const date = eventData[i]["startDate"];
-        const org = eventData[i]["organization"];
-        eventInfo.push({ name, location, date, time, org }); // add team:teamid
-        let members = eventData[i]["memberlist"];
-        for (const name in members) {
-          const team = members[name];
-          eventInfo.push({ name, team }); // add member:teamid
+    const dbRef = ref(db, '/events/');
+    let eventInfo = [];
+  
+    try {
+      const snapshot = await get(dbRef);
+  
+      if (snapshot.exists()) {
+        let eventData = snapshot.val()
+        for (const i in eventData) {
+          const name = eventData[i]["name"];
+          const location = eventData[i]["location"];
+          const time = eventData[i]["startTime"];
+          const date = eventData[i]["startDate"]
+          const org = eventData[i]["organization"]
+          const unix = eventData[i]["startUnixDate"]
+          const description = eventData[i]["description"]
+          eventInfo.push({name, location, date, time, org, unix, description}); // add team:teamid
+  
+          let members = eventData[i]["memberlist"];
+          for (const name in members) {
+            const team = members[name];
+            eventInfo.push({ name, team }); // add member:teamid
+          }
         }
+  
+      } else {
+        console.log('No data found at /teams/');
       }
-    } else {
-      console.log("No data found at /teams/");
+    } catch (error) {
+      console.error('Error fetching team data:', error);
     }
-  } catch (error) {
-    console.error("Error fetching team data:", error);
-  }
-  return eventInfo;
+    return eventInfo;
 }
