@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
-
 import NavBar from './components/navbar.js';
-import { useGetName } from './components/dbHelper.js'
+import {useGetName} from './components/dbHelper.js'
+
 
 
 export default function Profile(props) {

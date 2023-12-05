@@ -69,45 +69,76 @@ export function useGetName() {
 
 /* TEAM DATABASE READ FUNCTIONS */
 
-//1=NAME, 2=DESCRIPTION, 3=PHOTO, 4=MEMBER LIST
+//1=NAME, 2=DESCRIPTION, 3=PHOTO
 export function GetTeamInfo(teamid, choice) {
-    const [temp, setTemp] = useState("Loading");
-    const dbRef = ref(db, '/teams/' + teamid);
+    const [teamInfo, setTeamInfo] = useState("Loading");
 
-    get(dbRef)
-        .then((snapshot) => {
-            if (snapshot.exists()) {
-                var teamName;
-                switch(choice) {
-                    case 1:
-                        teamName = snapshot.val().team_name;
-                        break;
-                    case 2:
-                        teamName = snapshot.val().about_me;
-                        break;
-                    case 3:
-                        teamName = snapshot.val().key_image;      
-                        break;
-                    case 4:
-                        teamName = snapshot.val().team_name;
-                        break;
-                    default:
-                        teamName = "error"
+    useEffect(() => {
+        const dbRef = ref(db, '/teams/' + teamid);
+
+        get(dbRef)
+            .then((snapshot) => {
+                if (snapshot.exists()) {
+                    let teamName;
+                    switch (choice) {
+                        case 1:
+                            teamName = snapshot.val().team_name;
+                            break;
+                        case 2:
+                            teamName = snapshot.val().about_me;
+                            break;
+                        case 3:
+                            teamName = snapshot.val().key_image;
+                            break;
+                        default:
+                            teamName = "error";
+                    }
+                    setTeamInfo(teamName);
+                } else {
+                    console.log('Team not found.');
+                    setTeamInfo("Team not found");
                 }
-                //console.log(teamName);
-                setTemp(teamName);
-            } else {
-                console.log('Team not found.');
-                setTemp("Team not found");
-            }
-        })
-    return temp;
+            })
+            .catch((error) => {
+                console.error('Error fetching team data:', error);
+                setTeamInfo("Error fetching team data");
+            });
+    }, [teamid, choice]);
+
+    return teamInfo;
 }
 
 
 
-export function GetSearchTeam(name) {
-    return 1;
+export async function GetSearchList() {
+  const dbRef = ref(db, '/teams/');
+  let team_and_members = [];
+
+  try {
+    const snapshot = await get(dbRef);
+
+    if (snapshot.exists()) {
+      let teamData = snapshot.val();
+      for (let i = 1; i < Object.keys(teamData).length + 1; i++) {
+        const name = teamData[i]["team_name"];
+        const team = i;
+        team_and_members.unshift({name, team}); // add team:teamid
+
+        let members = teamData[i]["memberlist"];
+        for (const name in members) {
+          const team = members[name];
+          team_and_members.push({ name, team }); // add member:teamid
+        }
+      }
+
+    } else {
+      console.log('No data found at /teams/');
+    }
+  } catch (error) {
+    console.error('Error fetching team data:', error);
+  }
+  console.log(team_and_members);
+  return team_and_members;
 }
 
 

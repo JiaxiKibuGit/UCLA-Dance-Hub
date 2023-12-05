@@ -1,0 +1,20 @@
+.map-container {
+    position: relative;
+    width: 100%; /* or a specific width */
+  }
+  
+  .responsive-map {
+    width: 100%;
+    height: auto; /* maintains aspect ratio */
+  }
+  
+  .tear {
+    position: absolute;
+    width: 2vw; /* or another relative unit */
+    height: 2vw; /* or another relative unit */
+    border-radius: 0 50% 50% 50%;
+    border: 0.2vw solid black;
+    transform: rotate(-135deg);
+    background-color: red; /* for visibility */
+  }
+  
