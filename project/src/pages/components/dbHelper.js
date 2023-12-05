@@ -1,7 +1,11 @@
-import React, { useState, useEffect } from "react";
-import { initializeApp } from "firebase/app";
-import { getDatabase, ref, get, set, push } from "firebase/database";
-import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
+
+import React, {useState, useEffect} from 'react';
+import {initializeApp} from 'firebase/app';
+import {getDatabase, ref, get, set, push, limitToLast} from 'firebase/database';
+import { GoogleAuthProvider, getAuth, signInWithPopup } from 'firebase/auth';
+
+
+
 
 //firebase config
 export const firebaseConfig = {
@@ -101,44 +105,42 @@ export function useGetPFP() {
 
 /* TEAM DATABASE READ FUNCTIONS */
 
-//1=NAME, 2=DESCRIPTION, 3=PHOTO
-export function GetTeamInfo(teamid, choice) {
-  const [teamInfo, setTeamInfo] = useState("Loading");
-
-  useEffect(() => {
-    const dbRef = ref(db, "/teams/" + teamid);
-
-
-    get(dbRef)
-      .then((snapshot) => {
+//1=NAME, 2=DESCRIPTION, 3=PHOTO, 4=VIDEO, 5=MEMBERS
+export async function GetTeamInfo(teamid, choice) {
+    let teamName = [];
+    const dbRef = ref(db, '/teams/' + teamid+'/');
+    try {
+        const snapshot = await get(dbRef);
         if (snapshot.exists()) {
-          let teamName;
-          switch (choice) {
-            case 1:
-              teamName = snapshot.val().team_name;
-              break;
-            case 2:
-              teamName = snapshot.val().about_me;
-              break;
-            case 3:
-              teamName = snapshot.val().key_image;
-              break;
-            default:
-              teamName = "error";
-          }
-          setTeamInfo(teamName);
+            switch (choice) {
+                case 1:
+                    teamName.push(snapshot.val()["team_name"]);
+                    break;
+                case 2:
+                    teamName.push(snapshot.val()["about_me"]);
+                    break;
+                case 3:
+                    teamName.push(snapshot.val()["key_image"]);
+                    break;
+                case 4:
+                    teamName.push(snapshot.val()["vidlink"]);
+                    break;
+                case 5:
+                    teamName.push(snapshot.val()["memberlist"]);
+                    break;
+                default:
+                    teamName = "error";
+            }
         } else {
-          console.log("Team not found.");
-          setTeamInfo("Team not found");
+            console.log("Team not found");
+            return null; // or throw an error as per your error handling strategy
         }
-      })
-      .catch((error) => {
-        console.error("Error fetching team data:", error);
-        setTeamInfo("Error fetching team data");
-      });
-  }, [teamid, choice]);
+    } catch (error) {
+        console.error('Error fetching team: ', error);
+        throw error; // Re-throw the error for handling in the calling component
+    }
 
-  return teamInfo;
+    return teamName;
 }
 
 
