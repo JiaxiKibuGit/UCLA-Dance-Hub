@@ -121,7 +121,7 @@ export function GetTeamInfo(teamid, choice) {
 }
 
 
-
+// GET SEARCH LIST FOR TEAMS
 export async function GetSearchList() {
   const dbRef = ref(db, '/teams/');
   let team_and_members = [];
@@ -149,12 +149,13 @@ export async function GetSearchList() {
   } catch (error) {
     console.error('Error fetching team data:', error);
   }
-  console.log(team_and_members);
   return team_and_members;
 }
 
 
 
+
+//CREATE EVENT 
 export function createEvent(eventData) {
     const eventsRef = ref(db, 'events');
     return push(eventsRef, eventData)
@@ -168,6 +169,7 @@ export function createEvent(eventData) {
         });
 }
 
+//GET EVENT
 export async function getEvent(eventId) {
     const db = getDatabase();
     const eventRef = ref(db, `events/${eventId}`);
@@ -185,3 +187,38 @@ export async function getEvent(eventId) {
         throw error; // Re-throw the error for handling in the calling component
     }
 }
+
+
+
+//GET LIST OF EVENTS
+export async function GetEventList() {
+    const dbRef = ref(db, '/events/');
+    let eventInfo = [];
+  
+    try {
+      const snapshot = await get(dbRef);
+  
+      if (snapshot.exists()) {
+        let eventData = snapshot.val()
+        for (const i in eventData) {
+          const name = eventData[i]["name"];
+          const location = eventData[i]["location"];
+          const time = eventData[i]["startTime"];
+          const date = eventData[i]["startDate"]
+          eventInfo.push({name, location, date, time}); // add team:teamid
+  
+          let members = eventData[i]["memberlist"];
+          for (const name in members) {
+            const team = members[name];
+            eventInfo.push({ name, team }); // add member:teamid
+          }
+        }
+  
+      } else {
+        console.log('No data found at /teams/');
+      }
+    } catch (error) {
+      console.error('Error fetching team data:', error);
+    }
+    return eventInfo;
+  }
