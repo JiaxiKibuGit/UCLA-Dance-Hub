@@ -73,16 +73,232 @@ export default function HomePage() {
               )}
               {selectedContent.content === "contact" && (
                 <>
-                  {Array.from({ length: 20 }).map((_, index) => (
-                    <p key={index}>Test Data {index + 1}</p>
-                  ))}
+                  <h2
+                    style={{
+                      textAlign: "left",
+                      fontSize: "32px",
+                    }}
+                  >
+                    ACA
+                  </h2>
+                  <h2 style={{ textAlign: "left", fontSize: "20px" }}>
+                    <a
+                      href="https://linktr.ee/acaallday"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Linktree
+                    </a>
+                  </h2>
+                  <h2 style={{ textAlign: "left", fontSize: "20px" }}>
+                    <a
+                      href="https://www.instagram.com/acaallday/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Instagram
+                    </a>
+                  </h2>
+                  <h2 style={{ textAlign: "left", fontSize: "20px" }}>
+                    <a
+                      href="https://www.youtube.com/@acaallday"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      YouTube
+                    </a>
+                  </h2>
+                  <h2 style={{ textAlign: "left", fontSize: "20px" }}>
+                    <a
+                      href="https://www.facebook.com/acahiphop"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Facebook
+                    </a>
+                  </h2>
+                  <h2 style={{ textAlign: "left", fontSize: "32px" }}>VSU</h2>
+                  <h2 style={{ textAlign: "left", fontSize: "20px" }}>
+                    <a
+                      href="https://linktr.ee/vsumodern"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Linktree
+                    </a>
+                  </h2>
+                  <h2 style={{ textAlign: "left", fontSize: "20px" }}>
+                    <a
+                      href="https://www.instagram.com/vsumodern/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Instagram
+                    </a>
+                  </h2>
+                  <h2 style={{ textAlign: "left", fontSize: "20px" }}>
+                    <a
+                      href="https://www.youtube.com/user/vsumodern/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      YouTube
+                    </a>
+                  </h2>
+                  <h2 style={{ textAlign: "left", fontSize: "20px" }}>
+                    <a
+                      href="https://www.facebook.com/vsumodern"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Facebook
+                    </a>
+                  </h2>
+
+                  <h2 style={{ textAlign: "left", fontSize: "32px" }}>
+                    Samahang
+                  </h2>
+                  <h2 style={{ textAlign: "left", fontSize: "20px" }}>
+                    <a
+                      href="https://linktr.ee/samahangmodern"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Linktree
+                    </a>
+                  </h2>
+                  <h2 style={{ textAlign: "left", fontSize: "20px" }}>
+                    <a
+                      href="https://instagram.com/samahangmodern"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Instagram
+                    </a>
+                  </h2>
+                  <h2 style={{ textAlign: "left", fontSize: "20px" }}>
+                    <a
+                      href="https://www.youtube.com/channel/UCz3HuH4ffn5PRFrEFQMloMw"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      YouTube
+                    </a>
+                  </h2>
+                  <h2 style={{ textAlign: "left", fontSize: "32px" }}>
+                    Foundations
+                  </h2>
+                  <h2 style={{ textAlign: "left", fontSize: "20px" }}>
+                    <a
+                      href="https://www.instagram.com/foundationschoreo/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Instagram
+                    </a>
+                  </h2>
+                  <h2 style={{ textAlign: "left", fontSize: "20px" }}>
+                    <a
+                      href="https://www.youtube.com/c/FoundationsChoreography/featured"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      YouTube
+                    </a>
+                  </h2>
+                  <h2 style={{ textAlign: "left", fontSize: "20px" }}>
+                    <a
+                      href="https://www.facebook.com/FoundationsChoreo"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Facebook
+                    </a>
+                  </h2>
+                  <h2 style={{ textAlign: "left", fontSize: "32px" }}>KBM</h2>
+                  <h2 style={{ textAlign: "left", fontSize: "20px" }}>
+                    <a
+                      href="https://https://instagram.com/kbmdanceucla?igshid=q5ixx42b6tgq.instagram.com/vsumodern/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Instagram
+                    </a>
+                  </h2>
+                  <h2 style={{ textAlign: "left", fontSize: "20px" }}>
+                    <a
+                      href="https://www.youtube.com/c/KBMDanceUCLA"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      YouTube
+                    </a>
+                  </h2>
                 </>
               )}
               {selectedContent.content === "questions" && (
                 <>
-                  {Array.from({ length: 20 }).map((_, index) => (
-                    <p key={index}>Test Data {index + 1}</p>
-                  ))}
+                  <h2 style={{ textAlign: "left", fontSize: "32px" }}>
+                    How Do I Find Out About Future Performances And Events?
+                  </h2>
+                  <h2
+                    style={{
+                      textAlign: "left",
+                      fontSize: "20px",
+                      fontWeight: "normal",
+                    }}
+                  >
+                    You can either navigate to the upcoming schedule tab where
+                    we have all the future events and performances or you can go
+                    to the map tab where we have a map of the school with where
+                    and when events will happen.
+                  </h2>
+                  <h2 style={{ textAlign: "left", fontSize: "32px" }}>
+                    What Is An Admin?{" "}
+                  </h2>
+                  <h2
+                    style={{
+                      textAlign: "left",
+                      fontSize: "20px",
+                      fontWeight: "normal",
+                    }}
+                  >
+                    Admin accounts have the ability to add and remove events.
+                    They also have the ability to edit their organization page.
+                    You can tell you are an admin if you go to the profile page
+                    and there is a star next to your name.
+                  </h2>
+                  <h2 style={{ textAlign: "left", fontSize: "32px" }}>
+                    How Do I Become An Admin?{" "}
+                  </h2>
+                  <h2
+                    style={{
+                      textAlign: "left",
+                      fontSize: "20px",
+                      fontWeight: "normal",
+                    }}
+                  >
+                    Contact us at UCLADanceTeamWeb@gmail.com and provide proof
+                    of leadership within one of the available teams and we will
+                    get back to you quickly!
+                  </h2>
+                  <h2 style={{ textAlign: "left", fontSize: "32px" }}>
+                    How Does The Search Bar Work?
+                  </h2>
+                  <h2
+                    style={{
+                      textAlign: "left",
+                      fontSize: "20px",
+                      fontWeight: "normal",
+                    }}
+                  >
+                    You can search for either an organization or a team member
+                    through the search bar and it will bring you to the
+                    corresponding organization they are a part of. You can also
+                    search for an individual event through the name or the
+                    organization and clicking on it will bring you to a page
+                    describing the event.
+                  </h2>
                 </>
               )}
             </div>
@@ -92,3 +308,4 @@ export default function HomePage() {
     </div>
   );
 }
+
