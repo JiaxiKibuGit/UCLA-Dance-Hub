@@ -9,10 +9,13 @@ export default function HomePage() {
   });
 
   const handleContentClick = (content) => {
-    // Check if the clicked button is the same as the current active one
-    if (content === selectedContent.content) {
-      // Do nothing if the button is the same
-      return;
+    let title = "";
+    if (content === "contact") {
+      title = "Contact Information";
+    } else if (content === "questions") {
+      title = "Commonly Asked Questions";
+    } else {
+      title = "Upcoming Schedule";
     }
 
     // Set the selected content based on the clicked button
@@ -59,10 +62,7 @@ export default function HomePage() {
             </div>
           </aside>
           <main className="main-section">
-            <div
-              className="info-box"
-              onClick={() => handleContentClick("schedule")}
-            >
+            <div className="info-box">
               <h2>{selectedContent.title}</h2>
               {selectedContent.content === "schedule" && (
                 <>
@@ -352,4 +352,3 @@ export default function HomePage() {
     </div>
   );
 }
-
