@@ -73,7 +73,6 @@ export default function HomePage() {
               )}
               {selectedContent.content === "contact" && (
                 <>
-<<<<<<< HEAD
                   <h2
                     style={{
                       textAlign: "left",
@@ -235,16 +234,10 @@ export default function HomePage() {
                       YouTube
                     </a>
                   </h2>
-=======
-                  {Array.from({ length: 20 }).map((_, index) => (
-                    <p key={index}>Test Data {index + 1}</p>
-                  ))}
->>>>>>> e36ce78191dac51af46cf36118fec2d2e1405759
                 </>
               )}
               {selectedContent.content === "questions" && (
                 <>
-<<<<<<< HEAD
                   <h2 style={{ textAlign: "left", fontSize: "32px" }}>
                     How Do I Find Out About Future Performances And Events?
                   </h2>
@@ -306,11 +299,6 @@ export default function HomePage() {
                     organization and clicking on it will bring you to a page
                     describing the event.
                   </h2>
-=======
-                  {Array.from({ length: 20 }).map((_, index) => (
-                    <p key={index}>Test Data {index + 1}</p>
-                  ))}
->>>>>>> e36ce78191dac51af46cf36118fec2d2e1405759
                 </>
               )}
             </div>
