@@ -129,3 +129,4 @@ export function GetTeamInfo(teamid, choice) {
 export function GetSearchTeam(name) {
   return 1;
 }
+

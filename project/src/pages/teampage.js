@@ -5,7 +5,8 @@ import {GetTeamInfo} from './components/dbHelper.js'
 
 const TeamPage = (props) => {
     
-    var team_id = 2; // 1 = SAMAHANG, 2 = ACA 
+    var team_id = 1; // 1 = SAMAHANG, 2 = ACA 
+    team_id = window.sessionStorage.getItem("current_team");
     const marginTopValue = '60px'; 
 
     return (

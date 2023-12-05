@@ -1,16 +1,15 @@
-
 import NavBar from './components/navbar';
+import './notloggedin.css'
 
-export default function OrganizationSearch() {
+export default function NotLoggedIn() {
     return (
-      <div>
+      <div className = "NLI">
         <NavBar/>
         <br></br>
         <br></br>
         <br></br>
-        <p>Organization Search Page</p>
+        <p>PLEASE SIGN IN TO USE THIS FUNCTION</p>
       </div>
-
     );
   }
   

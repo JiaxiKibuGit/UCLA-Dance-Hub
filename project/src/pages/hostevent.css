@@ -1,0 +1,111 @@
+/* hostevent.css */
+
+.HE body,
+.HE h1,
+.HE h2,
+.HE p,
+.HE ul,
+.HE li,
+.HE a,
+.HE form,
+.HE label,
+.HE input,
+.HE textarea {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    font-family: 'Arial', sans-serif;
+    color: #333;
+}
+
+.HE body {
+    background-color: #f5f5f5;
+    line-height: 1.6;
+}
+
+/* Header Styles */
+.HE header {
+    background-color: #4D5382;
+    /* Adjusted to match navbar color */
+    padding: 1rem 0;
+    text-align: center;
+}
+
+.HE h1 {
+    font-size: 2.5rem;
+    color: #fff;
+}
+
+/* Main Styles */
+.HE main {
+    margin: 0;
+    padding: 1rem;
+    width: 95%;
+    /* Set the width to 100% to fill the whole page */
+}
+
+.HE .event-details {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    width: 100%;
+    /* Set width to 100% */
+}
+
+.HE h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.HE form {
+    display: grid;
+    gap: 1rem;
+}
+
+.HE label {
+    font-weight: bold;
+}
+
+.HE input[type="text"],
+.HE input[type="date"],
+.HE input[type="time"],
+.HE textarea {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.HE input[type="submit"] {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background-color: #4D5382;
+    /* Adjusted to match navbar color */
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.HE input[type="submit"]:hover {
+    background-color: #3D4569;
+    /* Adjusted hover color */
+}
+
+/* Footer Styles */
+.HE footer {
+    text-align: center;
+    padding: 1rem 0;
+    background-color: #4D5382;
+    /* Adjusted to match navbar color */
+    color: #fff;
+}
+
+/* Copyright Text Color */
+.HE footer p {
+    color: #777;
+}
