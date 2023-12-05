@@ -44,13 +44,17 @@ class DanceSearch extends React.Component {
 
     redirectToPage(name) {
         let team = this.state.idMap;
-        if(name == "Return to Homepage") window.location.replace("/");
-        for(let i = 0; i<Object.keys(team).length; i++) {
-            if(team[i]["name"] == name) {
-                window.sessionStorage.setItem("current_team", team[i]["team"]); // searches idMap for a match to the selection and sets that to team
-            }
+        if(name == "Return to Homepage") {
+            window.location.replace("/");
         }
-        window.location.replace("/team"); // go to team page
+        else {
+            for(let i = 0; i<Object.keys(team).length; i++) {
+                if(team[i]["name"] == name) {
+                    window.sessionStorage.setItem("current_team", team[i]["team"]); // searches idMap for a match to the selection and sets that to team
+                }
+            }
+            window.location.replace("/team"); // go to team page
+        }
     }
 
 
