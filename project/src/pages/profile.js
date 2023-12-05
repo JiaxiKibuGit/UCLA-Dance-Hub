@@ -15,7 +15,7 @@ export default function Profile(props) {
         <br></br>
         <br></br>
         <p>Profile</p>
-        <p>Name: {GetName()}</p>
+        <p>Name: {useGetName()}</p>
       </div>
     );
   }
