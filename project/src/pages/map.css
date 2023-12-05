@@ -1,3 +1,9 @@
+.centered-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Centers the container vertically */
+  }
 .map-container {
     position: relative;
     width: 100%; /* or a specific width */
@@ -7,9 +13,15 @@
     width: 100%;
     height: auto; /* maintains aspect ratio */
 }
-.content-container {
-    width: 100%; /* Sets the container to the full width of the page */
-}
+.centered-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Centers the container vertically */
+    background-image: url('../../public/mapDark.png'); /* Replace with the path to your background image */
+    background-size: cover; /* Ensures the image covers the entire container */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+  }  
   
 .content-container img {
     width: 100%; /* Sets the width of both images to 100% of their container */
