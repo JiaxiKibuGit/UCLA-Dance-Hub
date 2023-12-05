@@ -208,7 +208,6 @@ export async function getEvent(eventId) {
 }
 
 //GET LIST OF EVENTS
-/GET LIST OF EVENTS
 export async function GetEventList() {
     const dbRef = ref(db, '/events/');
     let eventInfo = [];
