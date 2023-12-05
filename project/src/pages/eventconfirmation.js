@@ -30,7 +30,7 @@ function EventConfirmation() {
     }
 
     return (
-        <div>
+        <div className='EC'>
             <NavBar />
             <main style={{ paddingTop: '4rem' }}>
                 <section className="event-details">

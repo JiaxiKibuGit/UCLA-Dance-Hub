@@ -1,16 +1,16 @@
 /* hostevent.css */
 
-body,
-h1,
-h2,
-p,
-ul,
-li,
-a,
-form,
-label,
-input,
-textarea {
+.HE body,
+.HE h1,
+.HE h2,
+.HE p,
+.HE ul,
+.HE li,
+.HE a,
+.HE form,
+.HE label,
+.HE input,
+.HE textarea {
     margin: 0;
     padding: 0;
     list-style: none;
@@ -19,33 +19,33 @@ textarea {
     color: #333;
 }
 
-body {
+.HE body {
     background-color: #f5f5f5;
     line-height: 1.6;
 }
 
 /* Header Styles */
-header {
+.HE header {
     background-color: #4D5382;
     /* Adjusted to match navbar color */
     padding: 1rem 0;
     text-align: center;
 }
 
-h1 {
+.HE h1 {
     font-size: 2.5rem;
     color: #fff;
 }
 
 /* Main Styles */
-main {
+.HE main {
     margin: 0;
     padding: 1rem;
     width: 95%;
     /* Set the width to 100% to fill the whole page */
 }
 
-.event-details {
+.HE .event-details {
     border: 1px solid #ddd;
     border-radius: 8px;
     padding: 1.5rem;
@@ -54,31 +54,31 @@ main {
     /* Set width to 100% */
 }
 
-h2 {
+.HE h2 {
     font-size: 1.5rem;
     margin-bottom: 1rem;
 }
 
-form {
+.HE form {
     display: grid;
     gap: 1rem;
 }
 
-label {
+.HE label {
     font-weight: bold;
 }
 
-input[type="text"],
-input[type="date"],
-input[type="time"],
-textarea {
+.HE input[type="text"],
+.HE input[type="date"],
+.HE input[type="time"],
+.HE textarea {
     width: 100%;
     padding: 0.5rem;
     border: 1px solid #ddd;
     border-radius: 4px;
 }
 
-input[type="submit"] {
+.HE input[type="submit"] {
     display: inline-block;
     padding: 1rem 2rem;
     background-color: #4D5382;
@@ -91,13 +91,13 @@ input[type="submit"] {
     transition: background-color 0.3s ease;
 }
 
-input[type="submit"]:hover {
+.HE input[type="submit"]:hover {
     background-color: #3D4569;
     /* Adjusted hover color */
 }
 
 /* Footer Styles */
-footer {
+.HE footer {
     text-align: center;
     padding: 1rem 0;
     background-color: #4D5382;
@@ -106,6 +106,6 @@ footer {
 }
 
 /* Copyright Text Color */
-footer p {
+.HE footer p {
     color: #777;
 }

@@ -39,7 +39,7 @@ function HostEvent() {
     };
 
     return (
-        <div>
+        <div className = 'HE'>
             <NavBar />
             <main style={{ paddingTop: '4rem' }}>
                 <section className="event-details">
