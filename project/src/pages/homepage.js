@@ -299,6 +299,50 @@ export default function HomePage() {
                     organization and clicking on it will bring you to a page
                     describing the event.
                   </h2>
+                  <h2 style={{ textAlign: "left", fontSize: "32px" }}>
+                    How Does The Search Bar Work?
+                  </h2>
+                  <h2
+                    style={{
+                      textAlign: "left",
+                      fontSize: "20px",
+                      fontWeight: "normal",
+                    }}
+                  >
+                    You can search for either an organization or a team member
+                    through the search bar and it will bring you to the
+                    corresponding organization they are a part of. You can also
+                    search for an individual event through the name or the
+                    organization and clicking on it will bring you to a page
+                    describing the event.
+                  </h2>
+                  <h2 style={{ textAlign: "left", fontSize: "32px" }}>
+                    How Does The Map Work?
+                  </h2>
+                  <h2
+                    style={{
+                      textAlign: "left",
+                      fontSize: "20px",
+                      fontWeight: "normal",
+                    }}
+                  >
+                    If you hover over the different locations available on our
+                    map you should see the events upcoming at each location as
+                    well as details about the team, time, and event name.
+                  </h2>
+                  <h2 style={{ textAlign: "left", fontSize: "32px" }}>
+                    How Do I See All The Members Of A Team?
+                  </h2>
+                  <h2
+                    style={{
+                      textAlign: "left",
+                      fontSize: "20px",
+                      fontWeight: "normal",
+                    }}
+                  >
+                    If you go to the organizations site all the members of a
+                    team should be listed under their organization.
+                  </h2>
                 </>
               )}
             </div>
