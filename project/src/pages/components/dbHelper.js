@@ -1,3 +1,4 @@
+
 import React, {useState, useEffect} from 'react';
 import {initializeApp} from 'firebase/app';
 import {getDatabase, ref, get, set, push, limitToLast} from 'firebase/database';
@@ -5,79 +6,102 @@ import { GoogleAuthProvider, getAuth, signInWithPopup } from 'firebase/auth';
 
 
 
+
 //firebase config
 export const firebaseConfig = {
-    apiKey: "AIzaSyATM-7r3rmpU6WOOPSpy1XU-db0Cj-nAW4",
-    authDomain: "ucladance-c16e6.firebaseapp.com",
-    projectId: "ucladance-c16e6",
-    storageBucket: "ucladance-c16e6.appspot.com",
-    messagingSenderId: "23121829941",
-    appId: "1:23121829941:web:a54c810e7e2c26763e517c",
-    measurementId: "G-58SW1QF39G"
+  apiKey: "AIzaSyATM-7r3rmpU6WOOPSpy1XU-db0Cj-nAW4",
+  authDomain: "ucladance-c16e6.firebaseapp.com",
+  projectId: "ucladance-c16e6",
+  storageBucket: "ucladance-c16e6.appspot.com",
+  messagingSenderId: "23121829941",
+  appId: "1:23121829941:web:a54c810e7e2c26763e517c",
+  measurementId: "G-58SW1QF39G",
 };
-  
 //initialize firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getDatabase();
 
-
-
 /* AUTHORIZATON HANDLERS */
-
 
 //Google Auth
 export async function signIn() {
-    const googleProvider = await new GoogleAuthProvider();
-    const res = await signInWithPopup(auth, googleProvider);
-    window.location.replace("/profile");
-};
-
+  const googleProvider = await new GoogleAuthProvider();
+  const res = await signInWithPopup(auth, googleProvider);
+  window.location.replace("/profile");
+}
 
 //go to signin if not logged in, go to profile
 export function PLHandler() {
-    auth.onAuthStateChanged((user) => {
-        if (user) {
-            window.location.replace("/profile");
-        } else {
-            signIn();
-        }
-    });
+  auth.onAuthStateChanged((user) => {
+    if (user) {
+      window.location.replace("/profile");
+    } else {
+      signIn();
+    }
+  });
 }
 
-//CHECK FOR AUTH TO USE HOSTING EVENT PAGE 
+//CHECK FOR AUTH TO USE HOSTING EVENT PAGE
 export function CheckIfAuth() {
-    auth.onAuthStateChanged((user) => {
-        if (user) {
-        } else {
-            window.location.replace("/NLI");
-        }
-    });
+  auth.onAuthStateChanged((user) => {
+    if (user) {
+    } else {
+      window.location.replace("/NLI");
+    }
+  });
 }
-
-
-
 
 //USER INFORMATON MODIFIER
 export function useGetName() {
-    const [currentName, setCurrentName] = useState("");
+  const [currentName, setCurrentName] = useState("");
 
-    useEffect(() => {
-        const x = auth.onAuthStateChanged(user => {
-            if (user) {
-                setCurrentName(user.displayName);
-            } else {
-                setCurrentName("Sign In");
-            }
-        });
-        return () => x();
-    }, []);
+  useEffect(() => {
+    const x = auth.onAuthStateChanged((user) => {
+      if (user) {
+        setCurrentName(user.displayName);
+      } else {
+        setCurrentName("Sign In");
+      }
+    });
+    return () => x();
+  }, []);
 
-    return currentName;
+  return currentName;
+}
+export function useGetEmail() {
+  const [currentEmail, setCurrentEmail] = useState("");
+
+  useEffect(() => {
+    const x = auth.onAuthStateChanged((user) => {
+      if (user) {
+        setCurrentEmail(user.email);
+      } else {
+        setCurrentEmail("Sign In");
+      }
+    });
+    return () => x();
+  }, []);
+
+  return currentEmail;
 }
 
+export function useGetPFP() {
+  const [currentPFP, setCurrentPFP] = useState("");
 
+  useEffect(() => {
+    const x = auth.onAuthStateChanged((user) => {
+      if (user) {
+        setCurrentPFP(user.photoURL);
+      } else {
+        setCurrentPFP("Sign In");
+      }
+    });
+    return () => x();
+  }, []);
 
+  return currentPFP;
+}
 
 /* TEAM DATABASE READ FUNCTIONS */
 
@@ -121,8 +145,9 @@ export async function GetTeamInfo(teamid, choice) {
 
 
 
+// GET SEARCH LIST FOR TEAMS
 export async function GetSearchList() {
-  const dbRef = ref(db, '/teams/');
+  const dbRef = ref(db, "/teams/");
   let team_and_members = [];
 
   try {
@@ -133,7 +158,7 @@ export async function GetSearchList() {
       for (let i = 1; i < Object.keys(teamData).length + 1; i++) {
         const name = teamData[i]["team_name"];
         const team = i;
-        team_and_members.unshift({name, team}); // add team:teamid
+        team_and_members.unshift({ name, team }); // add team:teamid
 
         let members = teamData[i]["memberlist"];
         for (const name in members) {
@@ -141,46 +166,81 @@ export async function GetSearchList() {
           team_and_members.push({ name, team }); // add member:teamid
         }
       }
-
     } else {
-      console.log('No data found at /teams/');
+      console.log("No data found at /teams/");
     }
   } catch (error) {
-    console.error('Error fetching team data:', error);
+    console.error("Error fetching team data:", error);
   }
-  console.log(team_and_members);
   return team_and_members;
 }
 
 
-
+//CREATE EVENT
 export function createEvent(eventData) {
-    const eventsRef = ref(db, 'events');
-    return push(eventsRef, eventData)
-        .then((response) => {
-            console.log('Event created successfully.');
-            return response; // Return the response which contains the reference to the new event
-        })
-        .catch((error) => {
-            console.error('Error creating event: ', error);
-            throw error; 
-        });
+  const eventsRef = ref(db, "events");
+  return push(eventsRef, eventData)
+    .then((response) => {
+      console.log("Event created successfully.");
+      return response; // Return the response which contains the reference to the new event
+    })
+    .catch((error) => {
+      console.error("Error creating event: ", error);
+      throw error;
+    });
 }
 
+//GET EVENT
 export async function getEvent(eventId) {
-    const db = getDatabase();
-    const eventRef = ref(db, `events/${eventId}`);
+  const db = getDatabase();
+  const eventRef = ref(db, `events/${eventId}`);
 
-    try {
-        const snapshot = await get(eventRef);
-        if (snapshot.exists()) {
-            return snapshot.val();
-        } else {
-            console.log("Event not found");
-            return null; // or throw an error as per your error handling strategy
-        }
-    } catch (error) {
-        console.error('Error fetching event: ', error);
-        throw error; // Re-throw the error for handling in the calling component
+  try {
+    const snapshot = await get(eventRef);
+    if (snapshot.exists()) {
+      return snapshot.val();
+    } else {
+      console.log("Event not found");
+      return null; // or throw an error as per your error handling strategy
     }
+  } catch (error) {
+    console.error("Error fetching event: ", error);
+    throw error; // Re-throw the error for handling in the calling component
+  }
+}
+
+//GET LIST OF EVENTS
+export async function GetEventList() {
+    const dbRef = ref(db, '/events/');
+    let eventInfo = [];
+  
+    try {
+      const snapshot = await get(dbRef);
+  
+      if (snapshot.exists()) {
+        let eventData = snapshot.val()
+        for (const i in eventData) {
+          const name = eventData[i]["name"];
+          const location = eventData[i]["location"];
+          const time = eventData[i]["startTime"];
+          const date = eventData[i]["startDate"]
+          const org = eventData[i]["organization"]
+          const unix = eventData[i]["startUnixDate"]
+          const description = eventData[i]["description"]
+          eventInfo.push({name, location, date, time, org, unix, description}); // add team:teamid
+  
+          let members = eventData[i]["memberlist"];
+          for (const name in members) {
+            const team = members[name];
+            eventInfo.push({ name, team }); // add member:teamid
+          }
+        }
+  
+      } else {
+        console.log('No data found at /teams/');
+      }
+    } catch (error) {
+      console.error('Error fetching team data:', error);
+    }
+    return eventInfo;
 }

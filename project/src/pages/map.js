@@ -15,35 +15,28 @@ export default function Map() {
   return (
     <div className="content-container">
       <NavBar />
-      <br/>
-      <br/>
-      <br/>
-      <div className="banner-container">
-        <img
-        src="gobruins.avif"
-        alt="UCLA banner"
-        className="ucla-banner"
-      />
-      </div>
-      
-      <div className="map-container">
-        <img
-          src="map.png"
-          alt="UCLA Map"
-          className="responsive-map"
-        />
-        {markers.map(marker => (
-          <div 
-            key={marker.id} 
-            className="tear" 
-            style={{ top: marker.top, left: marker.left }}
-          >
-            <div className="popup">
-              <img src={marker.imageUrl} alt="Marker Image" className="popup-image" />
-              <p>{marker.info}</p>
+      <br />
+      <br />
+      <div className="centered-container"> {/* New container for centering */}
+        <div className="map-container">
+          <img
+            src="map.png"
+            alt="UCLA Map"
+            className="responsive-map"
+          />
+          {markers.map(marker => (
+            <div
+              key={marker.id}
+              className="tear"
+              style={{ top: marker.top, left: marker.left }}
+            >
+              <div className="popup">
+                <img src={marker.imageUrl} alt="Marker Image" className="popup-image" />
+                <p>{marker.info}</p>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );
