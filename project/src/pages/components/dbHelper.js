@@ -110,4 +110,15 @@ export function GetSearchTeam(name) {
     return 1;
 }
 
+export function createEvent(eventData) {
+    const eventsRef = ref(db, 'events');
+    push(eventsRef, eventData)
+        .then(() => {
+            console.log('Event created successfully.');
+        })
+        .catch((error) => {
+            console.error('Error creating event: ', error);
+        });
+}
+
 
