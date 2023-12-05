@@ -1,11 +1,13 @@
 import React from 'react';
 import NavBar from './components/navbar'; 
-import { createEvent } from './components/dbHelper.js'; // Import the createEvent function from dbHelper.js
+import { CheckIfAuth, createEvent } from './components/dbHelper.js'; // Import the createEvent function from dbHelper.js
 import moment from 'moment-timezone'; // Import moment-timezone
 import { useNavigate } from 'react-router-dom'; 
 import './hostevent.css';
 
 function HostEvent() {
+    CheckIfAuth();
+
     const organizations = ['Samahang Modern', 'ACA All Day', 'VSU Modern', 'Foundations Choreography', 'KBM Dance'];
     const eventLocations = ['Lot 4 P1', 'Lot 4 P2', 'Lot 7 P1', 'Lot 8 P2', 'Lot DD', 'Pauley Pavillion (LATC)', 'Bruin Plaza', 'Wooden'];
     const navigate = useNavigate(); 
