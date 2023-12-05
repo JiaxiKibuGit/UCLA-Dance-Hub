@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {initializeApp} from 'firebase/app';
 import {getDatabase, ref, get} from 'firebase/database';
 import {GoogleAuthProvider, getAuth, signInWithPopup} from 'firebase/auth';
@@ -33,6 +33,7 @@ export async function signIn() {
 };
 
 
+//go to signin if not logged in, go to profile
 export function PLHandler() {
     auth.onAuthStateChanged((user) => {
         if (user) {
@@ -44,18 +45,21 @@ export function PLHandler() {
 }
 
 
-
 //USER INFORMATON MODIFIER
-export function GetName () {
-    const [currentName, setCurrentName] = useState("Name");
+export function useGetName() {
+    const [currentName, setCurrentName] = useState("");
 
-    auth.onAuthStateChanged((user) => {
-        if (user) {
-            setCurrentName(user.displayName);
-        } else {
-            setCurrentName("Sign In");
-        }
-    });
+    useEffect(() => {
+        const x = auth.onAuthStateChanged(user => {
+            if (user) {
+                setCurrentName(user.displayName);
+            } else {
+                setCurrentName("Sign In");
+            }
+        });
+        return () => x();
+    }, []);
+
     return currentName;
 }
 
@@ -101,6 +105,8 @@ export function GetTeamInfo(teamid, choice) {
 
 
 
-
+export function GetSearchTeam(name) {
+    return 1;
+}
 
 
