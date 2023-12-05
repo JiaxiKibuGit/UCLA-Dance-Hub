@@ -1,0 +1,75 @@
+/* homepage.css */
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  overflow-y: auto; /* Set body to be scrollable on the y-axis */
+}
+
+.header {
+  text-align: center;
+  max-width: 100%; /* Set the maximum width to the full viewport width */
+  overflow: hidden; /* Hide potential overflow */
+  position: relative; /* Add this to allow positioning of the top-box */
+}
+
+.banner-image {
+  width: 100%; /* Make the image fill the container */
+  height: auto; /* Maintain aspect ratio */
+  max-width: 100%; /* Limit the maximum width of the image */
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.main-content {
+  display: flex;
+  flex: 1;
+  align-items: stretch;
+}
+
+.side-bar {
+  flex: 0 0 15%;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.side-bar div:not(.top-box) {
+  cursor: pointer;
+  padding: 10px;
+  margin: 5px 0;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.side-bar h2 {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.main-section {
+  flex: 1;
+  padding: 10px 20px;
+}
+
+.info-box {
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.info-box h2 {
+  font-size: 40px;
+  font-weight: bold;
+  padding: 0px 20px 20px;
+  text-align: center; /* Align the text to the center */
+}
