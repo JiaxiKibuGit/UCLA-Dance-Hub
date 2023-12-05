@@ -15,15 +15,18 @@ export default class HomePage extends Component {
     };
   }
 
-  async componentDidMount() { // SETS MAP, SORTS SEARCHLIST
-      const temp = await GetEventList();
-      let sorted_list = temp.sort((a, b) => a.unix - b.unix); // sort list by time, earliest to latest
+  async componentDidMount() {
+    // SETS MAP, SORTS SEARCHLIST
+    const temp = await GetEventList();
+    let sorted_list = temp.sort((a, b) => a.unix - b.unix); // sort list by time, earliest to latest
 
-      const currentTime = Math.floor(Date.now() / 1000); // Current Unix time in seconds
-      const filteredList = sorted_list.filter(event => event.unix >= currentTime); // filter for only events after current event
+    const currentTime = Math.floor(Date.now() / 1000); // Current Unix time in seconds
+    const filteredList = sorted_list.filter(
+      (event) => event.unix >= currentTime
+    ); // filter for only events after current event
 
-      this.setState({ eventData : filteredList }); 
-      console.log(sorted_list);
+    this.setState({ eventData: filteredList });
+    console.log(sorted_list);
   }
 
   handleContentClick = (content) => {
@@ -84,11 +87,13 @@ export default class HomePage extends Component {
                 {selectedContent.content === "schedule" && (
                   <div className="eventListBox">
                     {this.state.eventData.map((event, index) => (
-                      <div className = "eventListOuterDiv">
-                         <p className = "eventHeader">{event.name}</p>
-                         <p className = "eventSubtitle">{event.location} | {event.date} at {event.time}</p>
-                         <p className = "eventSubtitle">{event.org}</p>
-                         <p className = "descriptionSub">"{event.description}"</p>
+                      <div className="eventListOuterDiv">
+                        <p className="eventHeader">{event.name}</p>
+                        <p className="eventSubtitle">
+                          {event.location} | {event.date} at {event.time}
+                        </p>
+                        <p className="eventSubtitle">{event.org}</p>
+                        <p className="descriptionSub">"{event.description}"</p>
                       </div>
                     ))}
                   </div>
@@ -97,13 +102,13 @@ export default class HomePage extends Component {
                   <>
                     <h2
                       style={{
-                        textAlign: "left",
+                        textAlign: "middle",
                         fontSize: "32px",
                       }}
                     >
-                      ACA
+                      ACA All Day
                     </h2>
-                    <h2 style={{ textAlign: "left", fontSize: "20px" }}>
+                    <h2 style={{ textAlign: "middle", fontSize: "20px" }}>
                       <a
                         href="https://linktr.ee/acaallday"
                         target="_blank"
@@ -112,7 +117,7 @@ export default class HomePage extends Component {
                         Linktree
                       </a>
                     </h2>
-                    <h2 style={{ textAlign: "left", fontSize: "20px" }}>
+                    <h2 style={{ textAlign: "middle", fontSize: "20px" }}>
                       <a
                         href="https://www.instagram.com/acaallday/"
                         target="_blank"
@@ -121,7 +126,7 @@ export default class HomePage extends Component {
                         Instagram
                       </a>
                     </h2>
-                    <h2 style={{ textAlign: "left", fontSize: "20px" }}>
+                    <h2 style={{ textAlign: "middle", fontSize: "20px" }}>
                       <a
                         href="https://www.youtube.com/@acaallday"
                         target="_blank"
@@ -130,7 +135,7 @@ export default class HomePage extends Component {
                         YouTube
                       </a>
                     </h2>
-                    <h2 style={{ textAlign: "left", fontSize: "20px" }}>
+                    <h2 style={{ textAlign: "middle", fontSize: "20px" }}>
                       <a
                         href="https://www.facebook.com/acahiphop"
                         target="_blank"
@@ -139,8 +144,10 @@ export default class HomePage extends Component {
                         Facebook
                       </a>
                     </h2>
-                    <h2 style={{ textAlign: "left", fontSize: "32px" }}>VSU</h2>
-                    <h2 style={{ textAlign: "left", fontSize: "20px" }}>
+                    <h2 style={{ textAlign: "middle", fontSize: "32px" }}>
+                      VSU Modern
+                    </h2>
+                    <h2 style={{ textAlign: "middle", fontSize: "20px" }}>
                       <a
                         href="https://linktr.ee/vsumodern"
                         target="_blank"
@@ -149,7 +156,7 @@ export default class HomePage extends Component {
                         Linktree
                       </a>
                     </h2>
-                    <h2 style={{ textAlign: "left", fontSize: "20px" }}>
+                    <h2 style={{ textAlign: "middle", fontSize: "20px" }}>
                       <a
                         href="https://www.instagram.com/vsumodern/"
                         target="_blank"
@@ -158,7 +165,7 @@ export default class HomePage extends Component {
                         Instagram
                       </a>
                     </h2>
-                    <h2 style={{ textAlign: "left", fontSize: "20px" }}>
+                    <h2 style={{ textAlign: "middle", fontSize: "20px" }}>
                       <a
                         href="https://www.youtube.com/user/vsumodern/"
                         target="_blank"
@@ -167,7 +174,7 @@ export default class HomePage extends Component {
                         YouTube
                       </a>
                     </h2>
-                    <h2 style={{ textAlign: "left", fontSize: "20px" }}>
+                    <h2 style={{ textAlign: "middle", fontSize: "20px" }}>
                       <a
                         href="https://www.facebook.com/vsumodern"
                         target="_blank"
@@ -176,11 +183,11 @@ export default class HomePage extends Component {
                         Facebook
                       </a>
                     </h2>
-  
-                    <h2 style={{ textAlign: "left", fontSize: "32px" }}>
-                      Samahang
+
+                    <h2 style={{ textAlign: "middle", fontSize: "32px" }}>
+                      Samahang Modern
                     </h2>
-                    <h2 style={{ textAlign: "left", fontSize: "20px" }}>
+                    <h2 style={{ textAlign: "middle", fontSize: "20px" }}>
                       <a
                         href="https://linktr.ee/samahangmodern"
                         target="_blank"
@@ -189,7 +196,7 @@ export default class HomePage extends Component {
                         Linktree
                       </a>
                     </h2>
-                    <h2 style={{ textAlign: "left", fontSize: "20px" }}>
+                    <h2 style={{ textAlign: "middle", fontSize: "20px" }}>
                       <a
                         href="https://instagram.com/samahangmodern"
                         target="_blank"
@@ -198,7 +205,7 @@ export default class HomePage extends Component {
                         Instagram
                       </a>
                     </h2>
-                    <h2 style={{ textAlign: "left", fontSize: "20px" }}>
+                    <h2 style={{ textAlign: "middle", fontSize: "20px" }}>
                       <a
                         href="https://www.youtube.com/channel/UCz3HuH4ffn5PRFrEFQMloMw"
                         target="_blank"
@@ -207,10 +214,10 @@ export default class HomePage extends Component {
                         YouTube
                       </a>
                     </h2>
-                    <h2 style={{ textAlign: "left", fontSize: "32px" }}>
-                      Foundations
+                    <h2 style={{ textAlign: "middle", fontSize: "32px" }}>
+                      Foundations Choreography
                     </h2>
-                    <h2 style={{ textAlign: "left", fontSize: "20px" }}>
+                    <h2 style={{ textAlign: "middle", fontSize: "20px" }}>
                       <a
                         href="https://www.instagram.com/foundationschoreo/"
                         target="_blank"
@@ -219,7 +226,7 @@ export default class HomePage extends Component {
                         Instagram
                       </a>
                     </h2>
-                    <h2 style={{ textAlign: "left", fontSize: "20px" }}>
+                    <h2 style={{ textAlign: "middle", fontSize: "20px" }}>
                       <a
                         href="https://www.youtube.com/c/FoundationsChoreography/featured"
                         target="_blank"
@@ -228,7 +235,7 @@ export default class HomePage extends Component {
                         YouTube
                       </a>
                     </h2>
-                    <h2 style={{ textAlign: "left", fontSize: "20px" }}>
+                    <h2 style={{ textAlign: "middle", fontSize: "20px" }}>
                       <a
                         href="https://www.facebook.com/FoundationsChoreo"
                         target="_blank"
@@ -237,8 +244,10 @@ export default class HomePage extends Component {
                         Facebook
                       </a>
                     </h2>
-                    <h2 style={{ textAlign: "left", fontSize: "32px" }}>KBM</h2>
-                    <h2 style={{ textAlign: "left", fontSize: "20px" }}>
+                    <h2 style={{ textAlign: "middle", fontSize: "32px" }}>
+                      KBM Dance
+                    </h2>
+                    <h2 style={{ textAlign: "middle", fontSize: "20px" }}>
                       <a
                         href="https://www.instagram.com/kbmdanceucla/?hl=en"
                         target="_blank"
@@ -247,7 +256,7 @@ export default class HomePage extends Component {
                         Instagram
                       </a>
                     </h2>
-                    <h2 style={{ textAlign: "left", fontSize: "20px" }}>
+                    <h2 style={{ textAlign: "middle", fontSize: "20px" }}>
                       <a
                         href="https://www.youtube.com/c/KBMDanceUCLA"
                         target="_blank"
@@ -271,9 +280,9 @@ export default class HomePage extends Component {
                       }}
                     >
                       You can either navigate to the upcoming schedule tab where
-                      we have all the future events and performances or you can go
-                      to the map tab where we have a map of the school with where
-                      and when events will happen.
+                      we have all the future events and performances or you can
+                      go to the map tab where we have a map of the school with
+                      where and when events will happen.
                     </h2>
                     <h2 style={{ textAlign: "left", fontSize: "32px" }}>
                       What Is An Admin?{" "}
@@ -286,9 +295,9 @@ export default class HomePage extends Component {
                       }}
                     >
                       Admin accounts have the ability to add and remove events.
-                      They also have the ability to edit their organization page.
-                      You can tell you are an admin if you go to the profile page
-                      and there is a star next to your name.
+                      They also have the ability to edit their organization
+                      page. You can tell you are an admin if you go to the
+                      profile page and there is a star next to your name.
                     </h2>
                     <h2 style={{ textAlign: "left", fontSize: "32px" }}>
                       How Do I Become An Admin?{" "}
@@ -301,8 +310,8 @@ export default class HomePage extends Component {
                       }}
                     >
                       Contact us at UCLADanceTeamWeb@gmail.com and provide proof
-                      of leadership within one of the available teams and we will
-                      get back to you quickly!
+                      of leadership within one of the available teams and we
+                      will get back to you quickly!
                     </h2>
                     <h2 style={{ textAlign: "left", fontSize: "32px" }}>
                       How Does The Search Bar Work?
@@ -316,10 +325,10 @@ export default class HomePage extends Component {
                     >
                       You can search for either an organization or a team member
                       through the search bar and it will bring you to the
-                      corresponding organization they are a part of. You can also
-                      search for an individual event through the name or the
-                      organization and clicking on it will bring you to a page
-                      describing the event.
+                      corresponding organization they are a part of. You can
+                      also search for an individual event through the name or
+                      the organization and clicking on it will bring you to a
+                      page describing the event.
                     </h2>
                     <h2 style={{ textAlign: "left", fontSize: "32px" }}>
                       How Does The Search Bar Work?
@@ -333,10 +342,10 @@ export default class HomePage extends Component {
                     >
                       You can search for either an organization or a team member
                       through the search bar and it will bring you to the
-                      corresponding organization they are a part of. You can also
-                      search for an individual event through the name or the
-                      organization and clicking on it will bring you to a page
-                      describing the event.
+                      corresponding organization they are a part of. You can
+                      also search for an individual event through the name or
+                      the organization and clicking on it will bring you to a
+                      page describing the event.
                     </h2>
                     <h2 style={{ textAlign: "left", fontSize: "32px" }}>
                       How Does The Map Work?
@@ -375,12 +384,3 @@ export default class HomePage extends Component {
     );
   }
 }
-
-
-
-
-
-
-
-
-
