@@ -1,7 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import {initializeApp} from 'firebase/app';
-import {getDatabase, ref, get} from 'firebase/database';
-import {GoogleAuthProvider, getAuth, signInWithPopup} from 'firebase/auth';
+import {getDatabase, ref, get, set, push} from 'firebase/database';
+import { GoogleAuthProvider, getAuth, signInWithPopup } from 'firebase/auth';
+
 
 
 //firebase config
@@ -141,3 +142,34 @@ export async function GetSearchList() {
 }
 
 
+
+export function createEvent(eventData) {
+    const eventsRef = ref(db, 'events');
+    return push(eventsRef, eventData)
+        .then((response) => {
+            console.log('Event created successfully.');
+            return response; // Return the response which contains the reference to the new event
+        })
+        .catch((error) => {
+            console.error('Error creating event: ', error);
+            throw error; 
+        });
+}
+
+export async function getEvent(eventId) {
+    const db = getDatabase();
+    const eventRef = ref(db, `events/${eventId}`);
+
+    try {
+        const snapshot = await get(eventRef);
+        if (snapshot.exists()) {
+            return snapshot.val();
+        } else {
+            console.log("Event not found");
+            return null; // or throw an error as per your error handling strategy
+        }
+    } catch (error) {
+        console.error('Error fetching event: ', error);
+        throw error; // Re-throw the error for handling in the calling component
+    }
+}
