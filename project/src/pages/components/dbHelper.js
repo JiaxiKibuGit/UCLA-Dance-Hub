@@ -90,6 +90,9 @@ export function GetTeamInfo(teamid, choice) {
                     case 4:
                         teamName = snapshot.val().team_name;
                         break;
+                    case 5:
+                        teamName = snapshot.val().vidlink;
+                        break;
                     default:
                         teamName = "error"
                 }

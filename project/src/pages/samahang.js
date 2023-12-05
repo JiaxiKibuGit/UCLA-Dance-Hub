@@ -5,10 +5,7 @@ import {GetTeamInfo} from './components/dbHelper.js'
 
 // TEAM_ID CONSTS
 const SAMAHANG = 1;
-const ACA = 2;
-const VSU = 3;
-const FOUNDATIONS = 4;
-const KBM = 5;
+
 
 // DATABASE READ CONSTS
 const TEAM_NAME = 1;
@@ -27,7 +24,7 @@ const TeamPage = (props) => {
        <div>
            <NavBar />
            <div style={{ width: '100%', height: '500px', overflow: 'hidden', marginTop: marginTopValue }}>
-               <img src={GetTeamInfo(team_id, PHOTO)} alt="Samahang Team Photo" style={{ width: '40%', height: '100%', objectFit: 'fill' }} />
+               <img src={GetTeamInfo(team_id, PHOTO)} alt="Samahang Team Photo" style={{ width: '50%', height: '100%', objectFit: 'fill' }} />
            </div>
            <div style={{ marginTop: '20px' }}>
                <h1>{GetTeamInfo(team_id, TEAM_NAME)}</h1>
