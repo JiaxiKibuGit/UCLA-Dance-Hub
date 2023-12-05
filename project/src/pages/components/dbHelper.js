@@ -110,15 +110,35 @@ export function GetSearchTeam(name) {
     return 1;
 }
 
+
+
 export function createEvent(eventData) {
     const eventsRef = ref(db, 'events');
-    push(eventsRef, eventData)
-        .then(() => {
+    return push(eventsRef, eventData)
+        .then((response) => {
             console.log('Event created successfully.');
+            return response; // Return the response which contains the reference to the new event
         })
         .catch((error) => {
             console.error('Error creating event: ', error);
+            throw error; 
         });
 }
 
+export async function getEvent(eventId) {
+    const db = getDatabase();
+    const eventRef = ref(db, `events/${eventId}`);
 
+    try {
+        const snapshot = await get(eventRef);
+        if (snapshot.exists()) {
+            return snapshot.val();
+        } else {
+            console.log("Event not found");
+            return null; // or throw an error as per your error handling strategy
+        }
+    } catch (error) {
+        console.error('Error fetching event: ', error);
+        throw error; // Re-throw the error for handling in the calling component
+    }
+}

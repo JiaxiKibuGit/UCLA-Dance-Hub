@@ -8,6 +8,7 @@ import NotFound from './pages/notfound.js';
 import Profile from './pages/profile.js';
 import TeamPage from './pages/teampage.js';
 import HostEvent from './pages/hostevent.js';
+import EventConfirmation from './pages/eventconfirmation.js'; 
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 
 const App = () => {
@@ -20,6 +21,7 @@ const App = () => {
         <Route exact path="/profile" element={<Profile />} />
         <Route exact path="/team" element={<TeamPage />} /> {/* New route for team pages */}
         <Route exact path="/hostevent" element={<HostEvent />} /> 
+        <Route path="/eventconfirmation/:eventId" element={<EventConfirmation />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
