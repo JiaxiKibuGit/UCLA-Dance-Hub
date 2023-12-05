@@ -23,5 +23,25 @@
     border: 0.2vw solid black;
     transform: rotate(-135deg);
     background-color: red; /* for visibility */
+    cursor: pointer;
 }
-  
+.popup {
+    display: none; /* Hide popup by default */
+    position: absolute;
+    z-index: 10; /* Make sure popup appears above other elements */
+    width: 200px; /* Adjust as needed */
+    background-color: white;
+    border: 1px solid black;
+    transform: rotate(135deg);
+    padding: 10px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+}
+
+.tear:hover .popup {
+display: block; /* Show popup on hover */
+}
+
+.popup-image {
+width: 100%; /* Make image fit in the popup */
+height: auto;
+}

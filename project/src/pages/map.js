@@ -4,7 +4,7 @@ import './map.css';
 
 export default function Map() {
   const markers = [
-    { id: 1, top: '27%', left: '21%' },
+    { id: 1, top: '27%', left: '21%'},
     { id: 2, top: '34.5%', left: '53.5%' },
     { id: 3, top: '38.5%', left: '37.4%' },
     { id: 4, top: '70%', left: '30%' },
@@ -37,7 +37,12 @@ export default function Map() {
             key={marker.id} 
             className="tear" 
             style={{ top: marker.top, left: marker.left }}
-          />
+          >
+            <div className="popup">
+              <img src={marker.imageUrl} alt="Marker Image" className="popup-image" />
+              <p>{marker.info}</p>
+            </div>
+          </div>
         ))}
       </div>
     </div>
