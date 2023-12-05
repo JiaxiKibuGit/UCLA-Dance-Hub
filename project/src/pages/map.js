@@ -18,13 +18,6 @@ export default function Map() {
       <br/>
       <br/>
       <br/>
-      <div className="banner-container">
-        <img
-        src="gobruins.avif"
-        alt="UCLA banner"
-        className="ucla-banner"
-      />
-      </div>
       
       <div className="map-container">
         <img
