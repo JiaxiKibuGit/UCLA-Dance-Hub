@@ -18,15 +18,18 @@
     margin: 0;
     font-size: 2.5rem;
     color: #fff;
-    /* Adjusted to match h1 color in hostevent.css */
 }
 
 .EC main {
     max-width: 800px;
     margin: 0 auto;
     padding: 2rem;
-    background-color: #f5f5f5;
-    /* Added background-color to match body color */
+    background-color: #fff;
+    /* Adjusted background-color to white for better contrast */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* Added a subtle box shadow for depth */
+    border-radius: 8px;
+    /* Rounded corners for the container */
 }
 
 .EC .event-details {
@@ -40,12 +43,20 @@
     font-size: 1.8rem;
     margin-bottom: 1rem;
     color: #333;
-    /* Adjusted to match h2 color in hostevent.css */
 }
 
 .EC footer {
     text-align: center;
     padding: 1rem 0;
     background-color: #4D5382;
+    /* Adjusted to match header color */
     color: #fff;
+}
+
+/* Added a class for the loading message */
+.EC .loading-message {
+    text-align: center;
+    padding-top: 4rem;
+    font-size: 1.2rem;
+    color: #333;
 }
