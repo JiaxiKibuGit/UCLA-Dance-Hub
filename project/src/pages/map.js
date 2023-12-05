@@ -1,30 +1,33 @@
+import React from 'react';
 import NavBar from './components/navbar';
+import './map.css';
 
 export default function Map() {
+  const markers = [
+    { id: 1, top: '27%', left: '21%' },
+    { id: 2, top: '34.5%', left: '53.5%' },
+    { id: 3, top: '38.5%', left: '37.4%' },
+    { id: 4, top: '70%', left: '30%' },
+    { id: 5, top: '28%', left: '76.4%' },
+    { id: 6, top: '54%', left: '60%' }
+  ];
+
   return (
     <div>
       <NavBar />
-      <div style={{ position: 'relative', width: '100%', height: '100%' }}>
+      <div className="map-container">
         <img
           src="map.png"
           alt="UCLA Map"
-          style={{ width: '100%', height: '100%' }}
+          className="responsive-map"
         />
-        {/* Creating a resizable circle */}
-        <div
-          style={{
-            position: 'absolute',
-            bottom: '14%', // Adjust position from bottom
-            left: '30%', // Adjust position from left
-            width: '3%', // Adjust the relative size
-            paddingBottom: '2.75%', // Maintain aspect ratio for circle
-            borderRadius: '50%',
-            backgroundColor: 'black', // Change the inside color of the circle
-            backgroundImage: 'radial-gradient(circle at 50% 50%, #7ef542, #5ae813)', // Change the inside color using a gradient
-            border: '1.5px solid black', // Add a black border or outline to the circle
-            boxSizing: 'border-box', // Ensure the border size doesn't increase the circle's overall size
-          }}
-        ></div>
+        {markers.map(marker => (
+          <div 
+            key={marker.id} 
+            className="tear" 
+            style={{ top: marker.top, left: marker.left }}
+          />
+        ))}
       </div>
     </div>
   );
