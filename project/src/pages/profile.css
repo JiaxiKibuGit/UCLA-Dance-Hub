@@ -19,18 +19,6 @@
     line-height: 1.6;
 }
 
-/* Header Styles */
-.PF header {
-    background-color: #333;
-    padding: 1rem 0;
-    text-align: center;
-}
-
-.PF h1 {
-    font-size: 2.5rem;
-    color: #fff;
-}
-
 /* Main Styles */
 .PF main {
     max-width: 800px;
@@ -38,14 +26,19 @@
     padding: 2rem;
 }
 
-.PF .user-info,
-.PF .enrolled-events {
+.PF .user-info {
     border: 1px solid #ddd;
     border-radius: 8px;
-    padding: 1.5rem;
+    padding: 2rem;
+    /* Increased padding */
     margin-bottom: 1.5rem;
     background-color: #fff;
-    /* Added background color */
+    text-align: center;
+    /* Centered text */
+    width: 50%;
+    /* Increased width */
+    margin: 2rem auto;
+    /* Centered the box with auto margin */
 }
 
 .PF h2 {
@@ -53,73 +46,61 @@
     margin-bottom: 1rem;
 }
 
-/* Enrolled Events Styles */
-.PF .enrolled-events {
-    background-color: #fff;
-}
-
-.PF #event-list {
-    padding: 0;
-    list-style: none;
-}
-
-.PF #event-list li {
-    margin-bottom: 0.5rem;
-}
-
-.PF #no-enrolled-events-note,
-.PF #no-hosted-events-note {
-    display: block;
-    font-size: 1.2rem;
-    color: #888;
-    /* Use the same color for both "None" messages */
-}
-
 /* Button Styles */
-.PF .event-hub-button,
-.PF .host-event-button {
+.PF .event-hub-button {
     display: block;
-    width: 100%;
-    padding: 0.5rem 1rem;
-    /* Adjust padding to make the button smaller */
+    width: 50%;
+    /* Match the width of the user info box */
+    padding: 0.75rem 1rem;
+    /* Adjust padding */
     background-color: #4D5382;
     color: #fff;
     border: none;
     border-radius: 4px;
-    font-size: 0.9rem;
-    /* Adjust font size to make it smaller */
-    text-align: center;
-    text-decoration: none;
+    font-size: 1rem;
+    /* Increased font size */
+    margin: 0 auto;
+    /* Center the button */
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
-.PF .event-hub-button:hover,
-.PF .host-event-button:hover {
+.PF .event-hub-button:hover {
     background-color: #5e659f;
-}
-/* Center the button horizontally within its container */
-.PF .button-container {
-    text-align: center;
-}
-
-/* Footer Styles */
-.PF footer {
-    text-align: center;
-    padding: 1rem 0;
-    background-color: #333;
-    color: #fff;
-}
-
-/* Copyright Text Color */
-.PF footer p {
-    color: #777;
 }
 
 /* Center the entire content vertically in the viewport */
 .PF .user-dashboard {
     display: flex;
+    flex-direction: column;
+    /* Align items vertically */
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 80vh;
+    /* Reduced from 100vh to 80vh */
+    margin-top: -50px;
+    /* Push content upwards */
+}
+
+.PF .followed-events-button {
+    display: block;
+    width: 50%;
+    /* Match the width of the user info box */
+    padding: 0.75rem 1rem;
+    /* Adjust padding */
+    background-color: #4A90E2;
+    /* Example button color */
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    margin: 20px auto 0;
+    /* Center the button and add margin at the top */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.PF .followed-events-button:hover {
+    background-color: #5AA9E6;
+    /* Slightly lighter color on hover */
 }
