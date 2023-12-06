@@ -17,8 +17,7 @@ Database: ```Firebase```
 
 ### Step 0. Clone the Repository
 ```bash
-git clone [(https://github.com/JiaxiKibuGit/CS35L-Group-Project.git)](https://github.com/JiaxiKibuGit/CS35L-Group-Project.git)](https://github.com/JiaxiKibuGit/CS35L-Group-Project.git)
-cd Laundry-Room-Maintenance-Portal
+git clone https://github.com/JiaxiKibuGit/CS35L-Group-Project
 ```
 
 ### Step 1. Install Dependencies and Compile 

@@ -13,6 +13,7 @@ import NotLoggedIn from './pages/notloggedin.js';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import AdminPage from './pages/admin.js';
 import NotAdmin from './pages/notadmin.js';
+import MyEvents from './pages/myevents.js';
 
 const App = () => {
   return (
@@ -28,6 +29,7 @@ const App = () => {
         <Route exact path="/NLI" element={<NotLoggedIn />} />
         <Route exact path="/NA" element={<NotAdmin />} />
         <Route exact path="/admin" element={<AdminPage />} />
+        <Route exact path="/myevents" element={<MyEvents />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>

@@ -294,10 +294,9 @@ export default class HomePage extends Component {
                         fontWeight: "normal",
                       }}
                     >
-                      Admin accounts have the ability to add and remove events.
-                      They also have the ability to add and remove members of an
-                      organization. You can tell you are an admin if there is an
-                      admin tab in the nav bar.
+                      Admin accounts have the ability to add and remove members
+                      of an organization. You can tell you are an admin if there
+                      is an admin tab in the nav bar.
                     </h2>
                     <h2 style={{ textAlign: "left", fontSize: "32px" }}>
                       How Do I Become An Admin?{" "}

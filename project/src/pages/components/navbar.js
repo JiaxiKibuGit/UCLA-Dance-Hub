@@ -11,9 +11,10 @@ const Navbar = () => {
       <button onClick={() => window.location.replace("/")}>Home</button>
       <button className="left" onClick={() => window.location.replace("/organizations")}>Organizations</button>
       <button onClick={() => window.location.replace("/Map")}>Map</button>
-      <button className="login" onClick={() => PLHandler()}>{currentName}</button>
+      <button onClick={() => window.location.replace("/myevents")}>My Events</button>
       <button onClick={() => window.location.replace("/hostevent")}>Host an Event</button>
       <button onClick={() => window.location.replace("/admin")}>Admin</button>
+      <button className="login" onClick={() => PLHandler()}>{currentName}</button>
     </div>
   );
 }

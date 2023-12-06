@@ -26,19 +26,29 @@ const db = getDatabase();
 
 //Google Auth
 export async function signIn() {
+  const auth = getAuth();
   const googleProvider = new GoogleAuthProvider();
   try {
     const res = await signInWithPopup(auth, googleProvider);
     const user = res.user;
 
     // Check if user exists in the database, if not create a new user profile
+    const db = getDatabase();
     const userRef = ref(db, 'users/' + user.uid);
     get(userRef).then((snapshot) => {
       if (!snapshot.exists()) {
+        // Initialize 'orgs followed' with all teams set to false
+        const orgsFollowed = {
+          1: false, // Team ID 1
+          2: false, // Team ID 2
+          3: false, // Team ID 3
+          4: false, // Team ID 4
+          5: false  // Team ID 5
+        };
+
         set(userRef, {
           email: user.email,
-          'events followed': {},
-          'orgs followed': {}
+          'orgs followed': orgsFollowed
         });
       }
     });
@@ -355,3 +365,37 @@ export async function removeMember(name, teamId) {
 
 
 
+
+
+
+/* myevents helper function */
+
+export async function GetFollowing() {
+  const dbRef = ref(db, '/users/');
+  let following = [];
+
+  try {
+    const snapshot = await get(dbRef);
+
+    if (snapshot.exists()) {
+      let userData = snapshot.val()
+      for (const i in userData) {
+        if(userData[i]["email"] == 'qqksou@gmail.com') {
+          const one = userData[i]["orgs followed"][1]
+          const two = userData[i]["orgs followed"][2]
+          const three = userData[i]["orgs followed"][3]
+          const four = userData[i]["orgs followed"][4]
+          const five = userData[i]["orgs followed"][5]
+
+          following.push({one, two, three, four, five}); 
+        }
+      }
+
+    } else {
+      console.log('No data found at /teams/');
+    }
+  } catch (error) {
+    console.error('Error fetching team data:', error);
+  }
+  return following;
+}
