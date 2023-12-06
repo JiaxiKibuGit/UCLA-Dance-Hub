@@ -279,10 +279,10 @@ export default class HomePage extends Component {
                         fontWeight: "normal",
                       }}
                     >
-                      You can either navigate to the upcoming schedule tab where
+                      You can either navigate to the "Upcoming Events" tab where
                       we have all the future events and performances or you can
                       go to the map tab where we have a map of the school with
-                      where and when events will happen.
+                      the locations and dates/times of the events.
                     </h2>
                     <h2 style={{ textAlign: "left", fontSize: "32px" }}>
                       What Is An Admin?{" "}
@@ -295,7 +295,7 @@ export default class HomePage extends Component {
                       }}
                     >
                       Admin accounts have the ability to add and remove members
-                      of an organization. You can tell you are an admin if there
+                      of an organization. You can tell if you are an admin if there
                       is an admin tab in the nav bar.
                     </h2>
                     <h2 style={{ textAlign: "left", fontSize: "32px" }}>
@@ -322,23 +322,10 @@ export default class HomePage extends Component {
                         fontWeight: "normal",
                       }}
                     >
-                      You can search for either an organization or a team member
-                      through the search bar and it will bring you to the
-                      corresponding organization they are a part of.
-                    </h2>
-                    <h2 style={{ textAlign: "left", fontSize: "32px" }}>
-                      How Does The Search Bar Work?
-                    </h2>
-                    <h2
-                      style={{
-                        textAlign: "left",
-                        fontSize: "20px",
-                        fontWeight: "normal",
-                      }}
-                    >
-                      You can search for either an organization or a team member
-                      through the search bar and it will bring you to the
-                      corresponding organization they are a part of.
+                      You can use the search bar to navigate to a team's page, 
+                      either by looking up a team's name, or the name of team 
+                      member, which will navigate to the team the dancer is 
+                      currently on.
                     </h2>
                     <h2 style={{ textAlign: "left", fontSize: "32px" }}>
                       How Does The Map Work?
@@ -351,7 +338,7 @@ export default class HomePage extends Component {
                       }}
                     >
                       If you hover over the different locations available on our
-                      map you should see the events upcoming at each location as
+                      map, you should see the events upcoming at each location as
                       well as details about the team, time, and event name.
                     </h2>
                     <h2 style={{ textAlign: "left", fontSize: "32px" }}>
