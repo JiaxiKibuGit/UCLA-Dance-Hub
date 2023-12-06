@@ -324,10 +324,7 @@ export default class HomePage extends Component {
                     >
                       You can search for either an organization or a team member
                       through the search bar and it will bring you to the
-                      corresponding organization they are a part of. You can
-                      also search for an individual event through the name or
-                      the organization and clicking on it will bring you to a
-                      page describing the event.
+                      corresponding organization they are a part of.
                     </h2>
                     <h2 style={{ textAlign: "left", fontSize: "32px" }}>
                       How Does The Search Bar Work?
