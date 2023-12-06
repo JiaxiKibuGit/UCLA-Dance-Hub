@@ -1,7 +1,7 @@
 import './admin.css';
 import React, { Component } from 'react';
 import Navbar from './components/navbar';
-import {CheckAdmin, addNewMember} from './components/dbHelper';
+import {CheckAdmin, addNewMember, removeMember} from './components/dbHelper';
 
 class AdminPage extends Component {
   constructor(props) {
@@ -10,6 +10,7 @@ class AdminPage extends Component {
       selectedOption: 1, // Default selected option
       inputText: '',
       message: '',
+      messagecolour:'green',
     };
   }
 
@@ -28,10 +29,14 @@ class AdminPage extends Component {
   handleAddMember = () => {
     addNewMember(this.state.inputText, this.state.selectedOption);
     this.setState({ message: 'Successfully added member' });
+    this.setState({ messagecolour: 'green' });
   };
 
   handleDeleteMember = () => {
-    this.setState({ message: 'Successfully deleted member' });
+    removeMember(this.state.inputText, this.state.selectedOption).then(result => {
+      this.setState({ message: result });
+      this.setState({ messagecolour: 'red' });
+    })
   };
 
   render() {
@@ -67,7 +72,7 @@ class AdminPage extends Component {
                 <button onClick={this.handleDeleteMember}>Delete Member</button>
                 </div>
 
-                <p className="message">{this.state.message}</p>
+                <p className="message" style={{color: this.state.messagecolour}}>{this.state.message}</p>
             </div>
       </div>
     );

@@ -297,7 +297,40 @@ export async function addNewMember(name, teamId) {
   } else {
     console.log('/members doesnt exist'); 
   }  
+}
 
+export async function removeMember(name, teamId) {
+  if (await teamId < 1 || await teamId > 5) {
+      console.error("Invalid team ID. Must be between 1 and 5."); // check valid teamid
+      return;
+  }
+
+  const dbRef = await ref(db, "teams/"+teamId+"/memberlist")
+
+  const snapshot = await get(dbRef);
+  if (snapshot.exists()) {
+    let memberlist = snapshot.val();
+    let successful_deletion = false;
+    for(const k in memberlist) { // check if exists
+      if(await k == name) {
+        await delete memberlist[k]; // if exists, delete
+        successful_deletion = true;
+      }
+    }
+    await update(ref(db, 'teams/' + teamId + '/'), { // add new member
+      memberlist
+    });
+
+    if(successful_deletion) {
+      return "Successfully Deleted Member"; // successful deletion
+    }
+    else {
+      return "Member does not exist, No change made"; // unsuccessful
+    }
+
+  } else {
+    console.log('/members doesnt exist'); 
+  }  
 }
 
 
