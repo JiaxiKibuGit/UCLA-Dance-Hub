@@ -1,7 +1,7 @@
 
 import React, {useState, useEffect} from 'react';
 import {initializeApp} from 'firebase/app';
-import {getDatabase, ref, get, set, push, limitToLast} from 'firebase/database';
+import {getDatabase, ref, get, set, push, limitToLast, update} from 'firebase/database';
 import { GoogleAuthProvider, getAuth, signInWithPopup } from 'firebase/auth';
 
 
@@ -251,8 +251,6 @@ export async function GetEventList() {
 
 /* ADMIN FUNCTIONS */
 
-
-
 export async function CheckAdmin() {
   const dbRef = ref(db, '/admins');
   let uid = "";
@@ -279,6 +277,28 @@ export async function CheckAdmin() {
   });
 }
 
+
+
+export async function addNewMember(name, teamId) {
+  if (await teamId < 1 || await teamId > 5) {
+      console.error("Invalid team ID. Must be between 1 and 5."); // check valid teamid
+      return;
+  }
+
+  const dbRef = await ref(db, "teams/"+teamId+"/memberlist")
+
+  const snapshot = await get(dbRef);
+  if (snapshot.exists()) {
+    let memberlist = snapshot.val();
+    memberlist[name] = teamId;
+        update(ref(db, 'teams/' + teamId + '/'), { // add new member
+          memberlist
+        });
+  } else {
+    console.log('/members doesnt exist'); 
+  }  
+
+}
 
 
 

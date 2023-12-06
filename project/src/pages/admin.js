@@ -1,7 +1,7 @@
 import './admin.css';
 import React, { Component } from 'react';
 import Navbar from './components/navbar';
-import {CheckAdmin} from './components/dbHelper';
+import {CheckAdmin, addNewMember} from './components/dbHelper';
 
 class AdminPage extends Component {
   constructor(props) {
@@ -26,6 +26,7 @@ class AdminPage extends Component {
   };
 
   handleAddMember = () => {
+    addNewMember(this.state.inputText, this.state.selectedOption);
     this.setState({ message: 'Successfully added member' });
   };
 
