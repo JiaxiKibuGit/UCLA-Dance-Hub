@@ -1,7 +1,7 @@
 import React from 'react';
 import NavBar from './components/navbar';
 import { GetTeamInfo } from './components/dbHelper.js';
-import './teampage.css'; // Import the external CSS file
+import './teampage.css'; 
 
 
 const TEAM_NAME = 1;
