@@ -2,7 +2,7 @@
 
 _UCLA Dance Hub for UCLA Students and Staff_
 
-This web application aims to inform students about the location and time of events hosted by the dance teams at UCLA. There are pages to view video and content of each of the dance teams we have at UCLA, as well as see a list of the members. We have implemented a system where users of the website can report future performances from the Dance teams which populates a schedule on the home page and an interactive map. Admins can also add and remove members from the organizations. 
+This web application aims to inform students about the location and time of events hosted by the dance teams at UCLA. There are pages to view videos and content of each of the dance teams we have at UCLA, as well as see a list of the members. We have implemented a system where users of the website can report future performances from the Dance teams which populates a schedule on the home page and an interactive map. Admins can also add and remove members from the organizations. 
 
 Group Members: Jason Tran, Leo Zhang, Michael Co, Thomas Mcconnell, Jiaxi Li
 
@@ -18,20 +18,12 @@ Database: ```Firebase```
 ### Step 0. Clone the Repository
 ```bash
 git clone [(https://github.com/JiaxiKibuGit/CS35L-Group-Project.git)](https://github.com/JiaxiKibuGit/CS35L-Group-Project.git)](https://github.com/JiaxiKibuGit/CS35L-Group-Project.git)
-cd Project
+cd Laundry-Room-Maintenance-Portal
 ```
 
-### Step 1. Install Dependencies and Compile the Frontend and the Backend
+### Step 1. Install Dependencies and Compile 
 
-Open two terminals.
-
-In one terminal:
-1. ```cd frontend```
-2. ```npm install```
-3. ```npm start```
-
-In the other terminal:
-1. ```cd backend```
+1. ```cd project```
 2. ```npm install```
 3. ```npm start```
 
@@ -44,7 +36,7 @@ Once you have logged in, you will be redirected to the home page.
 ### There are several universal features for both users and admin.
 1. You can view the upcoming schedule of events on the home page as well as the contact information of the teams and commonly asked questions. 
 
-2. You can view the varous dance orgs we have at UCLA, videos of their perfomances, a general rundown of the team, and a list of their members.
+2. You can view the various dance orgs we have at UCLA, videos of their performances, a general rundown of the team, and a list of their members.
 
 3. You can use the search function to look up any individual teams, events, or members.
 
@@ -58,5 +50,5 @@ Once you have logged in, you will be redirected to the home page.
 
 3. Add an event by using the Host an Event tab.
 
-### If you are logged in as a admin......
+### If you are logged in as an admin......
 1. You can add and remove members from an organization
