@@ -58,7 +58,7 @@ export default class HomePage extends Component {
         <br />
         <div className="content">
           <header className="header">
-            <img src="/gobruins.avif" alt="Banner" className="banner-image" />
+            <img src="/homepagepic.png" alt="Banner" className="banner-image" />
           </header>
           <div className="main-content">
             <aside className="side-bar">
