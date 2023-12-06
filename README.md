@@ -18,6 +18,7 @@ Database: ```Firebase```
 ### Step 0. Clone the Repository
 ```bash
 git clone https://github.com/JiaxiKibuGit/CS35L-Group-Project
+cd CS35L-Group-Project/
 ```
 
 ### Step 1. Install Dependencies and Compile 
