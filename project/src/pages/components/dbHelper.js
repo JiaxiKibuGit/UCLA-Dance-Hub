@@ -371,6 +371,16 @@ export async function removeMember(name, teamId) {
 /* myevents helper function */
 
 export async function GetFollowing() {
+  let myemail = "";
+  const x = auth.onAuthStateChanged((user) => {
+    if (user) {
+      myemail = user.email;
+    } else {
+      myemail = "unauth";
+    }
+  });
+
+
   const dbRef = ref(db, '/users/');
   let following = [];
 
@@ -380,7 +390,7 @@ export async function GetFollowing() {
     if (snapshot.exists()) {
       let userData = snapshot.val()
       for (const i in userData) {
-        if(userData[i]["email"] == 'qqksou@gmail.com') {
+        if(userData[i]["email"] == myemail) {
           const one = userData[i]["orgs followed"][1]
           const two = userData[i]["orgs followed"][2]
           const three = userData[i]["orgs followed"][3]
