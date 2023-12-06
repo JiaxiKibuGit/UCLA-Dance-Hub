@@ -294,10 +294,9 @@ export default class HomePage extends Component {
                         fontWeight: "normal",
                       }}
                     >
-                      Admin accounts have the ability to add and remove events.
-                      They also have the ability to edit their organization
-                      page. You can tell you are an admin if you go to the
-                      profile page and there is a star next to your name.
+                      Admin accounts have the ability to add and remove members
+                      of an organization. You can tell you are an admin if there
+                      is an admin tab in the nav bar.
                     </h2>
                     <h2 style={{ textAlign: "left", fontSize: "32px" }}>
                       How Do I Become An Admin?{" "}
@@ -325,10 +324,7 @@ export default class HomePage extends Component {
                     >
                       You can search for either an organization or a team member
                       through the search bar and it will bring you to the
-                      corresponding organization they are a part of. You can
-                      also search for an individual event through the name or
-                      the organization and clicking on it will bring you to a
-                      page describing the event.
+                      corresponding organization they are a part of.
                     </h2>
                     <h2 style={{ textAlign: "left", fontSize: "32px" }}>
                       How Does The Search Bar Work?
@@ -342,10 +338,7 @@ export default class HomePage extends Component {
                     >
                       You can search for either an organization or a team member
                       through the search bar and it will bring you to the
-                      corresponding organization they are a part of. You can
-                      also search for an individual event through the name or
-                      the organization and clicking on it will bring you to a
-                      page describing the event.
+                      corresponding organization they are a part of.
                     </h2>
                     <h2 style={{ textAlign: "left", fontSize: "32px" }}>
                       How Does The Map Work?

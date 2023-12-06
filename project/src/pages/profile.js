@@ -1,11 +1,52 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import NavBar from "./components/navbar.js";
-import { useGetEmail, useGetName, useGetPFP } from "./components/dbHelper.js";
+import { useGetEmail, useGetName, useGetPFP, GetTeamInfo } from "./components/dbHelper.js";
 import { getAuth, signOut } from "firebase/auth";
-import './profile.css'; // Assuming the CSS is in this file
+import { getDatabase, ref, get } from 'firebase/database';
+import './profile.css';
 
-export default function Profile(props) {
-  const auth = getAuth(); // Assuming Firebase is initialized globally
+function useFollowedOrgs(userId) {
+  const [followedOrgs, setFollowedOrgs] = useState([]);
+  const [updateTrigger, setUpdateTrigger] = useState(false); // Trigger to re-fetch data
+
+  useEffect(() => {
+    const fetchFollowedOrgs = async () => {
+      if (userId) {
+        const db = getDatabase();
+        const userRef = ref(db, `users/${userId}/orgs followed`);
+        const teamsRef = ref(db, 'teams');
+        const orgsSnapshot = await get(userRef);
+        const teamsSnapshot = await get(teamsRef);
+
+        if (orgsSnapshot.exists() && teamsSnapshot.exists()) {
+          const orgsData = orgsSnapshot.val();
+          const teamsData = teamsSnapshot.val();
+          const followedTeams = [];
+
+          for (let i = 1; i <= Object.keys(orgsData).length; i++) {
+            if (orgsData[i]) {
+              const teamInfo = await GetTeamInfo(i, 1); // 1 for team name
+              followedTeams.push(teamInfo[0]);
+            }
+          }
+
+          setFollowedOrgs(followedTeams);
+        }
+      }
+    };
+
+    fetchFollowedOrgs();
+  }, [userId, updateTrigger]); // Re-fetch when userId or updateTrigger changes
+
+  return [followedOrgs, setUpdateTrigger];
+}
+
+export default function Profile() {
+  const auth = getAuth();
+  const userEmail = useGetEmail();
+  const userName = useGetName();
+  const userPFP = useGetPFP();
+  const [followedOrgs] = useFollowedOrgs(auth.currentUser?.uid);
 
   const handleSignOut = async () => {
     try {
@@ -18,41 +59,23 @@ export default function Profile(props) {
 
   return (
     <div className="PF">
-      <div className="user-dashboard">
-        <NavBar />
+      <NavBar />
+      <main className="user-dashboard">
+        <section className="user-info">
+          <h2>User Profile</h2>
+          <img
+            src={userPFP}
+            alt="Profile"
+            style={{ width: "150px", height: "150px", objectFit: "cover", borderRadius: "100%" }}
+          />
+          <p><strong>Name:</strong> {userName}</p>
+          <p><strong>Email:</strong> {userEmail}</p>
+          <p><strong>Organizations Followed:</strong> {followedOrgs.join(', ') || 'None'}</p>
+          <button className="followed-events-button">All Followed Events</button>
+        </section>
 
-        <main>
-          <section className="user-info">
-            <h2>User Profile</h2>
-            <img
-              src={useGetPFP()} // Assuming this function provides the URL of the profile picture
-              alt="Profile"
-              style={{ width: "150px", height: "150px", objectFit: "cover", borderRadius: "100%" }}
-            />
-            <p><strong>Name:</strong> {useGetName()}</p>
-            <p><strong>Email:</strong> {useGetEmail()}</p>
-            <p><strong>Organizations Followed:</strong> 0</p>
-          </section>
-
-          <section className="enrolled-events">
-            <h2>Events Followed:</h2>
-            <ul id="event-list">
-              {/* The list of enrolled events will be dynamically generated */}
-            </ul>
-
-            {/* Display a note if there are no enrolled events */}
-            <p id="no-enrolled-events-note" style={{ display: 'none' }}><strong>None</strong></p>
-          </section>
-
-          {/* Sign Out Button */}
-          <button
-            onClick={handleSignOut}
-            className="event-hub-button"
-          >
-            Sign Out
-          </button>
-        </main>
-      </div>
+        <button onClick={handleSignOut} className="event-hub-button">Sign Out</button>
+      </main>
     </div>
   );
 }
