@@ -1,70 +1,62 @@
-# Getting Started with Create React App
+# UCLA Dance Hub
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+_UCLA Dance Hub for UCLA Students and Staff_
 
-## Available Scripts
+This web application aims to inform students about the location and time of events hosted by the dance teams at UCLA. There are pages to view video and content of each of the dance teams we have at UCLA, as well as see a list of the members. We have implemented a system where users of the website can report future performances from the Dance teams which populates a schedule on the home page and an interactive map. Admins can also add and remove members from the organizations. 
 
-In the project directory, you can run:
+Group Members: Jason Tran, Leo Zhang, Michael Co, Thomas Mcconnell, Jiaxi Li
 
-### `npm start`
+## Technologies Used
+Client: ```React.js```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Server: ```Node.js```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Database: ```Firebase```
 
-### `npm test`
+## Getting Started
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Step 0. Clone the Repository
+```bash
+git clone [(https://github.com/JiaxiKibuGit/CS35L-Group-Project.git)](https://github.com/JiaxiKibuGit/CS35L-Group-Project.git)](https://github.com/JiaxiKibuGit/CS35L-Group-Project.git)
+cd Project
+```
 
-### `npm run build`
+### Step 1. Install Dependencies and Compile the Frontend and the Backend
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Open two terminals.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+In one terminal:
+1. ```cd frontend```
+2. ```npm install```
+3. ```npm start```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+In the other terminal:
+1. ```cd backend```
+2. ```npm install```
+3. ```npm start```
 
-### `npm run eject`
+### Step 2. Check Out in Your Brower
+Navigate to ```http://localhost:3000/```. 
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Step 3. On the Home Page
+Once you have logged in, you will be redirected to the home page. 
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### There are several universal features for both users and admin.
+1. You can view the upcoming schedule of events on the home page as well as the contact information of the teams and commonly asked questions. 
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+2. You can view the varous dance orgs we have at UCLA, videos of their perfomances, a general rundown of the team, and a list of their members.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+3. You can use the search function to look up any individual teams, events, or members.
 
-## Learn More
+4. You can view the map of the school for various times and locations of the upcoming events.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### There are also several distinct features for both users and the admin
+### If you are logged in as a user......
+1. You can view your profile by clicking on your name.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+2. Follow an org to see only the events they have coming up on your profile page. 
 
-### Code Splitting
+3. Add an event by using the Host an Event tab.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### If you are logged in as a admin......
+1. You can add and remove members from an organization
