@@ -3,11 +3,6 @@ import NavBar from './components/navbar';
 import { GetTeamInfo } from './components/dbHelper.js';
 import './teampage.css'; // Import the external CSS file
 
-const SAMAHANG = 1;
-const ACA = 2;
-const VSU = 3;
-const FOUNDATIONS = 4;
-const KBM = 5;
 
 const TEAM_NAME = 1;
 const ABOUT_US = 2;
@@ -18,7 +13,7 @@ class TeamPage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            team_id: SAMAHANG, // default value, can be updated based on sessionStorage or props
+            team_id: 1, // default value, can be updated based on sessionStorage or props
             name:"", 
             photo:"", 
             about_us:"", 
@@ -27,6 +22,8 @@ class TeamPage extends React.Component {
             member2:[], 
             member3:[],
             member4:[],
+            isFollowing: false,
+
         };
     }
 
@@ -68,9 +65,14 @@ class TeamPage extends React.Component {
 
     }
 
+    handleFollowButtonClick = () => {
+        this.setState((prevState) => ({ isFollowing: !prevState.isFollowing }));
+    }
+
     render() {
         
         const marginTopValue = '60px';
+        const followButtonText = this.state.isFollowing ? 'Unfollow' : 'Follow';
 
         return (
             <div className="team-page-container">
@@ -88,7 +90,11 @@ class TeamPage extends React.Component {
                 </div>
 
                 <div className="team-info-container">
-                    <h1 className="team-name">{this.state.name}</h1>
+                    <h1 className="team-name">{this.state.name}
+                        <button className="follow-button" onClick={this.handleFollowButtonClick}>
+                            {followButtonText}
+                        </button>
+                    </h1>
                     <h2>About Us</h2>
                     <p className="about-us">
                         {this.state.about_us}
