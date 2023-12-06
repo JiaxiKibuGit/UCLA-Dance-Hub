@@ -365,3 +365,37 @@ export async function removeMember(name, teamId) {
 
 
 
+
+
+
+/* myevents helper function */
+
+export async function GetFollowing() {
+  const dbRef = ref(db, '/users/');
+  let following = [];
+
+  try {
+    const snapshot = await get(dbRef);
+
+    if (snapshot.exists()) {
+      let userData = snapshot.val()
+      for (const i in userData) {
+        if(userData[i]["email"] == 'qqksou@gmail.com') {
+          const one = userData[i]["orgs followed"][1]
+          const two = userData[i]["orgs followed"][2]
+          const three = userData[i]["orgs followed"][3]
+          const four = userData[i]["orgs followed"][4]
+          const five = userData[i]["orgs followed"][5]
+
+          following.push({one, two, three, four, five}); 
+        }
+      }
+
+    } else {
+      console.log('No data found at /teams/');
+    }
+  } catch (error) {
+    console.error('Error fetching team data:', error);
+  }
+  return following;
+}

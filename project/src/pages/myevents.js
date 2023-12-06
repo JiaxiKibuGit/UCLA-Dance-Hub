@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import NavBar from "./components/navbar";
 import "./homepage.css";
-import { GetEventList, CheckIfAuth } from "./components/dbHelper";
+import { GetEventList, CheckIfAuth, GetFollowing } from "./components/dbHelper";
+import { filter } from "@chakra-ui/react";
 
 export default class MyEvents extends Component {
   constructor(props) {
@@ -23,8 +24,47 @@ export default class MyEvents extends Component {
       (event) => event.unix >= currentTime
     ); // filter for only events after current event
 
-    this.setState({ eventData: filteredList });
-    console.log(sorted_list);
+    const flw = await GetFollowing();
+    const myorgs = []
+    for(const i in flw[0]) {
+      if(flw[0][i]) {
+        await myorgs.push(i); // populate myorgs
+      }
+    }
+
+    const finallist = [];
+    let convertedname = "";
+    for(const i in myorgs) { // add all events with event.org = followed org essentially 
+      switch(myorgs[i]) {
+        case "one":
+          convertedname = "Samahang Modern";
+          break;
+        case "two":
+          convertedname = "ACA All Day"
+          break;
+        case "three":
+          convertedname = "VSU Modern"
+          break;
+        case "four":
+          convertedname = "Foundations Choreography"
+          break;          
+        case "five":
+          convertedname = "KBM Dance";
+          break;          
+        default:
+          console.log("all untrue");
+          break;
+      }
+      const temp = sorted_list.filter(
+        (event) => event.org == convertedname
+      );
+      for(const j in temp) {
+        finallist.push(temp[j])
+      }
+    }
+
+
+    this.setState({ eventData: finallist });
   }
 
 
