@@ -1,15 +1,20 @@
 import './admin.css';
 import React, { Component } from 'react';
-import Navbar from './components/navbar'
+import Navbar from './components/navbar';
+import {CheckAdmin} from './components/dbHelper';
 
 class AdminPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedOption: 'One', // Default selected option
+      selectedOption: 1, // Default selected option
       inputText: '',
       message: '',
     };
+  }
+
+  componentDidMount() {
+    CheckAdmin();
   }
 
   handleDropdownChange = (event) => {
@@ -33,17 +38,17 @@ class AdminPage extends Component {
         <div className='admin-outer'>
             <div className="admin-page">
                 <Navbar></Navbar>
-                <h1>Add/Delete Member</h1>
+                <h1>Admin Team Management</h1>
                 <div className="dropdown-container">
                 <select
                     value={this.state.selectedOption}
                     onChange={this.handleDropdownChange}
                 >
                     <option value={1}>Samahang Modern</option>
-                    <option value="Two">ACA All Day</option>
-                    <option value="Three">VSU Modern</option>
-                    <option value="Four">Foundations Choreography</option>
-                    <option value="Five">KBM Dance</option>
+                    <option value={2}>ACA All Day</option>
+                    <option value={3}>VSU Modern</option>
+                    <option value={4}>Foundations Choreography</option>
+                    <option value={5}>KBM Dance</option>
                 </select>
                 </div>
 

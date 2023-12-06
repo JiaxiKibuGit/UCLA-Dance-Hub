@@ -249,4 +249,37 @@ export async function GetEventList() {
 
 
 
-/* ADMIN FUNCTION */
+/* ADMIN FUNCTIONS */
+
+
+
+export async function CheckAdmin() {
+  const dbRef = ref(db, '/admins');
+  let uid = "";
+  const snapshot = await get(dbRef);
+  const x = await auth.onAuthStateChanged((user) => {
+    if (user) {
+      uid = user.uid;
+          if (snapshot.exists()) {
+            let admins = snapshot.val();
+            if(admins[uid]) {
+              console.log("admin!"); // do nothing, admin = good!
+            }
+            else {
+              console.log("not admin"); // redirect to NEED TO BE ADMIN
+              window.location.replace("/NA");
+            }
+          } else {
+            console.log('/admins doesnt exist'); 
+          }
+    } else {
+      console.log("not logged in"); // redirect to NOT LOGGED IN
+      window.location.replace("/NLI");
+    }
+  });
+}
+
+
+
+
+
