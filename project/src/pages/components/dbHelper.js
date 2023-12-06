@@ -26,9 +26,28 @@ const db = getDatabase();
 
 //Google Auth
 export async function signIn() {
-  const googleProvider = await new GoogleAuthProvider();
-  const res = await signInWithPopup(auth, googleProvider);
-  window.location.replace("/profile");
+  const googleProvider = new GoogleAuthProvider();
+  try {
+    const res = await signInWithPopup(auth, googleProvider);
+    const user = res.user;
+
+    // Check if user exists in the database, if not create a new user profile
+    const userRef = ref(db, 'users/' + user.uid);
+    get(userRef).then((snapshot) => {
+      if (!snapshot.exists()) {
+        set(userRef, {
+          email: user.email,
+          'events followed': {},
+          'orgs followed': {}
+        });
+      }
+    });
+
+    window.location.replace("/profile");
+  } catch (error) {
+    console.error("Error during sign in: ", error);
+    // Handle errors here, such as displaying a message to the user
+  }
 }
 
 //go to signin if not logged in, go to profile

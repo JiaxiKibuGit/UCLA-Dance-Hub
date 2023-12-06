@@ -1,0 +1,125 @@
+/* Reset default browser styles */
+.PF body,
+.PF h1,
+.PF h2,
+.PF p,
+.PF ul,
+.PF li,
+.PF a {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+.PF body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header Styles */
+.PF header {
+    background-color: #333;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+.PF h1 {
+    font-size: 2.5rem;
+    color: #fff;
+}
+
+/* Main Styles */
+.PF main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.PF .user-info,
+.PF .enrolled-events {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    background-color: #fff;
+    /* Added background color */
+}
+
+.PF h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Enrolled Events Styles */
+.PF .enrolled-events {
+    background-color: #fff;
+}
+
+.PF #event-list {
+    padding: 0;
+    list-style: none;
+}
+
+.PF #event-list li {
+    margin-bottom: 0.5rem;
+}
+
+.PF #no-enrolled-events-note,
+.PF #no-hosted-events-note {
+    display: block;
+    font-size: 1.2rem;
+    color: #888;
+    /* Use the same color for both "None" messages */
+}
+
+/* Button Styles */
+.PF .event-hub-button,
+.PF .host-event-button {
+    display: block;
+    width: 100%;
+    padding: 0.5rem 1rem;
+    /* Adjust padding to make the button smaller */
+    background-color: #4D5382;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    /* Adjust font size to make it smaller */
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.PF .event-hub-button:hover,
+.PF .host-event-button:hover {
+    background-color: #5e659f;
+}
+/* Center the button horizontally within its container */
+.PF .button-container {
+    text-align: center;
+}
+
+/* Footer Styles */
+.PF footer {
+    text-align: center;
+    padding: 1rem 0;
+    background-color: #333;
+    color: #fff;
+}
+
+/* Copyright Text Color */
+.PF footer p {
+    color: #777;
+}
+
+/* Center the entire content vertically in the viewport */
+.PF .user-dashboard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
