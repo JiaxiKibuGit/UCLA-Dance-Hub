@@ -1,7 +1,7 @@
 
 import React, {useState, useEffect} from 'react';
 import {initializeApp} from 'firebase/app';
-import {getDatabase, ref, get, set, push, limitToLast} from 'firebase/database';
+import {getDatabase, ref, get, set, push, limitToLast, update} from 'firebase/database';
 import { GoogleAuthProvider, getAuth, signInWithPopup } from 'firebase/auth';
 
 
@@ -263,3 +263,95 @@ export async function GetEventList() {
     }
     return eventInfo;
 }
+
+
+
+
+
+/* ADMIN FUNCTIONS */
+
+export async function CheckAdmin() {
+  const dbRef = ref(db, '/admins');
+  let uid = "";
+  const snapshot = await get(dbRef);
+  const x = await auth.onAuthStateChanged((user) => {
+    if (user) {
+      uid = user.uid;
+          if (snapshot.exists()) {
+            let admins = snapshot.val();
+            if(admins[uid]) {
+              console.log("admin!"); // do nothing, admin = good!
+            }
+            else {
+              console.log("not admin"); // redirect to NEED TO BE ADMIN
+              window.location.replace("/NA");
+            }
+          } else {
+            console.log('/admins doesnt exist'); 
+          }
+    } else {
+      console.log("not logged in"); // redirect to NOT LOGGED IN
+      window.location.replace("/NLI");
+    }
+  });
+}
+
+
+
+export async function addNewMember(name, teamId) {
+  if (await teamId < 1 || await teamId > 5) {
+      console.error("Invalid team ID. Must be between 1 and 5."); // check valid teamid
+      return;
+  }
+
+  const dbRef = await ref(db, "teams/"+teamId+"/memberlist")
+
+  const snapshot = await get(dbRef);
+  if (snapshot.exists()) {
+    let memberlist = snapshot.val();
+    memberlist[name] = teamId;
+        update(ref(db, 'teams/' + teamId + '/'), { // add new member
+          memberlist
+        });
+  } else {
+    console.log('/members doesnt exist'); 
+  }  
+}
+
+export async function removeMember(name, teamId) {
+  if (await teamId < 1 || await teamId > 5) {
+      console.error("Invalid team ID. Must be between 1 and 5."); // check valid teamid
+      return;
+  }
+
+  const dbRef = await ref(db, "teams/"+teamId+"/memberlist")
+
+  const snapshot = await get(dbRef);
+  if (snapshot.exists()) {
+    let memberlist = snapshot.val();
+    let successful_deletion = false;
+    for(const k in memberlist) { // check if exists
+      if(await k == name) {
+        await delete memberlist[k]; // if exists, delete
+        successful_deletion = true;
+      }
+    }
+    await update(ref(db, 'teams/' + teamId + '/'), { // add new member
+      memberlist
+    });
+
+    if(successful_deletion) {
+      return "Successfully Deleted Member"; // successful deletion
+    }
+    else {
+      return "Member does not exist, No change made"; // unsuccessful
+    }
+
+  } else {
+    console.log('/members doesnt exist'); 
+  }  
+}
+
+
+
+

@@ -11,6 +11,8 @@ import EventConfirmation from './pages/eventconfirmation.js';
 import DanceSearch from './pages/Search.js'
 import NotLoggedIn from './pages/notloggedin.js';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import AdminPage from './pages/admin.js';
+import NotAdmin from './pages/notadmin.js';
 
 const App = () => {
   return (
@@ -24,6 +26,8 @@ const App = () => {
         <Route exact path="/team" element={<TeamPage />} /> {/* New route for team page */}
         <Route exact path="/organizations" element={<DanceSearch />} />
         <Route exact path="/NLI" element={<NotLoggedIn />} />
+        <Route exact path="/NA" element={<NotAdmin />} />
+        <Route exact path="/admin" element={<AdminPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
