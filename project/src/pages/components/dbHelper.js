@@ -244,3 +244,9 @@ export async function GetEventList() {
     }
     return eventInfo;
 }
+
+
+
+
+
+/* ADMIN FUNCTION */

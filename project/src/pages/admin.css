@@ -1,0 +1,36 @@
+
+.admin-outer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+  }
+
+.admin-page {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .dropdown-container {
+    top:10%;
+    margin-bottom: 10px;
+  }
+  
+  .input-container {
+    margin-bottom: 10px;
+  }
+  
+  .button-container button {
+    margin-right: 10px;
+  }
+  
+  .message {
+    color: green;
+    margin-top: 10px;
+  }
+
+  

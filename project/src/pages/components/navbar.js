@@ -13,6 +13,7 @@ const Navbar = () => {
       <button onClick={() => window.location.replace("/Map")}>Map</button>
       <button className="login" onClick={() => PLHandler()}>{currentName}</button>
       <button onClick={() => window.location.replace("/hostevent")}>Host an Event</button>
+      <button onClick={() => window.location.replace("/admin")}>Admin</button>
     </div>
   );
 }
