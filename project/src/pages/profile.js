@@ -40,6 +40,9 @@ function useFollowedOrgs(userId) {
 
   return [followedOrgs, setUpdateTrigger];
 }
+const goToMyEvents = () => {
+  window.location.href = '/myevents';
+};
 
 export default function Profile() {
   const auth = getAuth();
@@ -71,7 +74,7 @@ export default function Profile() {
           <p><strong>Name:</strong> {userName}</p>
           <p><strong>Email:</strong> {userEmail}</p>
           <p><strong>Organizations Followed:</strong> {followedOrgs.join(', ') || 'None'}</p>
-          <button className="followed-events-button">All Followed Events</button>
+          <button className="followed-events-button" onClick={goToMyEvents}>All Followed Events</button>
         </section>
 
         <button onClick={handleSignOut} className="event-hub-button">Sign Out</button>
