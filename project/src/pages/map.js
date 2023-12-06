@@ -3,8 +3,15 @@ import NavBar from './components/navbar';
 import './map.css';
 import { GetEventList } from './components/dbHelper';
 
+const organizationImages = {
+  "ACA All Day": "acalogo.jpg",
+  "Samahang Modern": "smhglogo.jpg",
+  "KBM Dance": "kbmlogo.jpg",
+  "Foundations Choreography": "fclogo.jpg",
+  "VSU Modern": "vsulogo.jpg",
+};
+
 export default function Map() {
-  console.log("don");
   const [events, setEvents] = useState([]);
 
   useEffect(() => {
@@ -57,29 +64,44 @@ export default function Map() {
   return (
     <div className="content-container">
       <NavBar />
-      <br />
-      <br />
+      <br /><br />
       <div className="centered-container">
         <div className="map-container">
-          <img
-            src="map.png"
-            alt="UCLA Map"
-            className="responsive-map"
-          />
+          <img src="map.png" alt="UCLA Map" className="responsive-map" />
           {markers.map(marker => {
             const event = getEventForMarker(marker.id);
-            return event ? (
-              <div
-                key={marker.id}
-                className="tear"
-                style={{ top: marker.top, left: marker.left }}
-              >
-                <div className="popup">
-                  <img src={event.imageUrl} alt="Marker Image" className="popup-image" />
-                  <p>{event.name} - {event.startDate}</p>
+            if (event) {
+              const imageUrl = organizationImages[event.org];
+              const timeDifference = new Date(event.date) - new Date();
+              const daysUntilEvent = Math.floor(timeDifference / (1000 * 60 * 60 * 24)) + 1;
+              let eventStatus = "";
+              if (daysUntilEvent === 0) {
+                eventStatus = "today";
+              } else if (daysUntilEvent === 1) {
+                eventStatus = "tomorrow";
+              } else if (daysUntilEvent > 1) {
+                eventStatus = `in ${daysUntilEvent} days`;
+              } else {
+                eventStatus = "already passed";
+              }
+              const [hours, minutes] = event.time.split(':').map(Number);
+              const period = hours >= 12 ? "PM" : "AM";
+              const standardHours = hours % 12 || 12; 
+              const standardTime = `${standardHours}:${minutes.toString().padStart(2, "0")} ${period}`;
+              
+              const popupDescription = event.name + " is " + eventStatus + " at " + standardTime;
+              return (
+                <div key={marker.id} className="tear" style={{ top: marker.top, left: marker.left }}>
+                  <div className="popup">
+                    <img src={imageUrl} alt="Event" className="popup-image" />
+                    <div className="popup-text">
+                      <p className="popup-title">{popupDescription}</p>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            ) : null;
+              );
+            }
+            return null;
           })}
         </div>
       </div>

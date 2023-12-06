@@ -38,22 +38,29 @@
     cursor: pointer;
 }
 .popup {
+    left: -8vw;
     display: none; /* Hide popup by default */
     position: absolute;
     z-index: 10; /* Make sure popup appears above other elements */
-    width: 200px; /* Adjust as needed */
+    width: 23vw; /* Adjust as needed */
+    height: 5vw;
     background-color: white;
     border: 1px solid black;
     transform: rotate(135deg);
+    justify-content: start;
+    align-items: center;
+    text-align: center;
     padding: 10px;
     box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
 }
 
 .tear:hover .popup {
-display: block; /* Show popup on hover */
+display: flex; /* Show popup on hover */
 }
 
 .popup-image {
-width: 100%; /* Make image fit in the popup */
-height: auto;
+    max-width: 20%; /* Maximum width as a percentage of its container */
+    height: auto; /* Keep the aspect ratio */
+    object-fit: cover; /* Adjust as needed */
+    margin-right: 0.5vw; /* Space between image and text */
 }
