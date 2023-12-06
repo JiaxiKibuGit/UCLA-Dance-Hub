@@ -38,7 +38,7 @@
     cursor: pointer;
 }
 .popup {
-    left: -8vw;
+    left: -7vw;
     display: none; /* Hide popup by default */
     position: absolute;
     z-index: 10; /* Make sure popup appears above other elements */
