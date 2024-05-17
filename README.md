@@ -17,7 +17,7 @@ Database: ```Firebase```
 
 ### Step 0. Clone the Repository
 ```bash
-git clone https://github.com/JiaxiKibuGit/CS35L-Group-Project
+git clone https://github.com/JiaxiKibuGit/UCLA-Dance-Hub.git
 cd CS35L-Group-Project/
 ```
 
