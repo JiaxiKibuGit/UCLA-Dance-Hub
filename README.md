@@ -18,7 +18,7 @@ Database: ```Firebase```
 ### Step 0. Clone the Repository
 ```bash
 git clone https://github.com/JiaxiKibuGit/UCLA-Dance-Hub.git
-cd CS35L-Group-Project/
+cd UCLA-Dance-Hub/
 ```
 
 ### Step 1. Install Dependencies and Compile 
